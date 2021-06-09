@@ -31,7 +31,7 @@ const WeatherData = () => {
     // console.log(rain);
   } catch (error) {
     // console.log(rain);
-    console.log(error);
+    // console.log(error);
   }
   // Snow
   let snow;
@@ -39,8 +39,8 @@ const WeatherData = () => {
     snow = weather.current.snow["1h"];
     console.log(snow);
   } catch (error) {
-    console.log(snow);
-    console.log(error);
+    // console.log(snow);
+    // console.log(error);
   }
 
   // console.log(weather);
@@ -99,7 +99,7 @@ const WeatherData = () => {
       <div className="weather-data__details">
         <span className="weather-data__minor-property">
           <WiCloudy className="weather-data__icon weather-data__icon--light-blue" />
-          <p className="weather-data__minor-title">Zachmórzenie</p>
+          <p className="weather-data__minor-title">Zachmurzenie</p>
           <p className="weather-data__minor-value">{ clouds }%</p>
         </span>
         <span className="weather-data__minor-property">

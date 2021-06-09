@@ -50,7 +50,7 @@ const Main = () => {
             <button className={ `main__button main__button--7d${ buttonIndex }`} onClick={ () => setButtonIndex(2) }>7-Dni</button>
           </div>
           { error && <Error error={ error } /> }
-          { alerts && <Alerts alerts={ alerts } />}
+          { alerts && <Alerts />}
           <span className={ 'weather' + buttonIndex }>{ weather && <WeatherData /> }</span>
           <span className={ 'hourly' + buttonIndex }>{ weather && <HourlyData /> }</span>
           <span className={ 'daily' + buttonIndex}>{ weather && <DailyData /> }</span>
