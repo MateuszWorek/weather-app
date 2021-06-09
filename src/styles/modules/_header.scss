@@ -1,11 +1,13 @@
 .header {
-  text-align: center;
-  border: transparent;
-  background-color: $colour-2;
-  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &__title {
-    font-weight: 600;
-    color: white;
+  &__add {
+    width: 728px;
+    height: 90px;
+    background-image: url('https://images.unsplash.com/photo-1581093683496-7d03189c8291?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80');
+    background-position: center;
   }
 }

@@ -6,7 +6,6 @@ const Icon = () => {
   const { weather, city } = useContext(Context);
   const { icon } = weather.current.weather[0];
   const { dt, sunrise, sunset } = weather.current;
-  console.log(dt, sunrise, sunset);
 
   const [dayNight, setDayNight] = useState();
   useEffect(() => {
@@ -14,8 +13,6 @@ const Icon = () => {
 
     setDayNight(isDay);
   }, [dt]);
-
-  console.log(dayNight);
 
   return (
     <div className={ `icon__main icon__main--${ dayNight }` }>

@@ -16,6 +16,15 @@
     margin-left: 0.5rem;
   }
 
+    &__date {
+      margin-left: 0.5rem;
+      display: block;
+
+      @media (min-width: $small-devices) {
+        display: inline;
+      }
+    }
+
   &__header {
     padding: 2.5rem 0 1.5rem;
     display: flex;

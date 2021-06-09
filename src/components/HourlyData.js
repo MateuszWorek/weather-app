@@ -10,9 +10,13 @@ const HourlyData = () => {
   // Current time
   const currentMs = dt * 1000;
   const currentTime = new Date(currentMs);
+  const currentDate = currentTime.getDate();
   let currentHour = currentTime.getHours();
   const currentMinute = currentTime.getMinutes();
 
+  const endTimeMs = currentMs + 172800000;
+  const endTime = new Date(endTimeMs);
+  const endDate = endTime.toLocaleDateString();
 
   return (
     <div className="hourly-data">
@@ -20,8 +24,9 @@ const HourlyData = () => {
         <h1 className="hourly-data__tagline">
           <BiCurrentLocation className="hourly-data__location" />
           <span className="hourly-data__city">
-            { city }
+            { city },
           </span>
+          <span className="hourly-data__date">{ currentDate } - { endDate }</span>
         </h1>
       </article>
       <article className="hourly-data__header">

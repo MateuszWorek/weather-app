@@ -7,6 +7,7 @@ import Error from './Error';
 import Footer from './Footer';
 import HourlyData from './HourlyData';
 import DailyData from './DailyData';
+import Header from './Header';
 
 const Main = () => {
   const [city, setCity] = useState();
@@ -38,6 +39,7 @@ const Main = () => {
     <div className="main">
       <Content>
         <Context.Provider value={{ getApi, weather, city }}>
+          <Header />
           <WeatherSearch />
           <div className="main__button-group">
             <button className={ `main__button main__button--a${ buttonIndex }`} onClick={ () => setButtonIndex(0) }>Aktualna</button>
@@ -48,6 +50,7 @@ const Main = () => {
           <span className={ 'weather' + buttonIndex }>{ weather && <WeatherData /> }</span>
           <span className={ 'hourly' + buttonIndex }>{ weather && <HourlyData /> }</span>
           <span className={ 'daily' + buttonIndex}>{ weather && <DailyData /> }</span>
+          <Header />
         </Context.Provider>
       </Content>
       <Footer />

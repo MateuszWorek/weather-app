@@ -4,6 +4,7 @@ import { BiCurrentLocation } from 'react-icons/bi';
 
 const DailyData = () => {
   const { weather, city } = useContext(Context);
+  const { dt } = weather.current;
   const dailyData = weather.daily;
   const daysOfWeek = [
     "Niedziela",
@@ -14,6 +15,14 @@ const DailyData = () => {
     "Piątek",
     "Sobota",
   ];
+  const currentMs = dt * 1000;
+  const currentTime = new Date(currentMs);
+  const currentDate = currentTime.getDate();
+  console.log(currentDate);
+  const endTimeMs = currentMs + 604800000;
+  const endTime = new Date(endTimeMs);
+  const endDate = endTime.toLocaleDateString();
+  console.log(endDate);
 
   return (
     <div className="hourly-data">
@@ -21,8 +30,9 @@ const DailyData = () => {
         <h1 className="hourly-data__tagline">
           <BiCurrentLocation className="hourly-data__location" />
           <span className="hourly-data__city">
-            { city }
+            { city },
           </span>
+          <span className="hourly-data__date">{ currentDate } - { endDate }</span>
         </h1>
       </article>
       <article className="hourly-data__header">

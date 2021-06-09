@@ -3,6 +3,7 @@ import Context from '../Context';
 import { BiCurrentLocation } from 'react-icons/bi';
 import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset } from 'react-icons/wi';
 import Icon from './Icon';
+import DateTime from './DateTime';
 
 const WeatherData = () => {
   const { weather, city } = useContext(Context);
@@ -28,7 +29,7 @@ const WeatherData = () => {
       <h1 className="weather-data__tagline">
         <BiCurrentLocation className="weather-data__location" />
         <span className="weather-data__city">
-          { city }
+          { city }, <DateTime />
         </span>
       </h1>
     </article>
