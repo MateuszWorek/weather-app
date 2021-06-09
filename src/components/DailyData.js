@@ -57,7 +57,7 @@ const DailyData = () => {
 
           return (
             <article className="hourly-data__row" id={ key }>
-              <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon--${ key }` } src={`http://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
+              <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon--${ key }` } src={`https://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
               <span className={ `hourly-data__time hourly-data__time--${ key }` }>{ dayOfWeek }</span>
               <span className={ `hourly-data__temp hourly-data__temp--${ key }` }>{ Math.floor(day) }&#176;C / { Math.floor(night) }&#176;C</span>
               <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ humidity }%</span>

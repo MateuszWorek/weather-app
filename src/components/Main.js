@@ -21,7 +21,7 @@ const Main = () => {
     const location = e.target.elements.location.value;
     if(!location) return setError(`Wprowadź poprawną nazwę miejscowości.`), setWeather(null);
     // Geocoding API
-    const geoApiCall = `http://api.openweathermap.org/geo/1.0/direct?q=${ location }&limit=1&appid=${ API_KEY }`;
+    const geoApiCall = `https://api.openweathermap.org/geo/1.0/direct?q=${ location }&limit=1&appid=${ API_KEY }`;
     const geoRequest = await fetch(geoApiCall);
     const geoResponse = await geoRequest.json();
 

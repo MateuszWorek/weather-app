@@ -50,7 +50,7 @@ const HourlyData = () => {
           let currentHour = currentTime.getHours();
           return (
             <article className="hourly-data__row" id={ key }>
-              <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon weather-data__icon--${ key }` } src={`http://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
+              <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon weather-data__icon--${ key }` } src={`https://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
               <span className={ `hourly-data__time hourly-data__time--${ key }` }>{ currentHour }:00</span>
               <span className={ `hourly-data__temp hourly-data__temp--${ key }` }>{ Math.floor(temp) }&#176;C</span>
               <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ humidity }%</span>

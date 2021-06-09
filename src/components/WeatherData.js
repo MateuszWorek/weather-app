@@ -38,7 +38,6 @@ const WeatherData = () => {
       <div className="weather-data__box">
         <span className="weather-data__property">
           <Icon />
-          {/* <img className="weather-data__icon" src={`http://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> */}
           <p className="weather-data__description">{ description }</p>
         </span>
         <span className="weather-data__property">
