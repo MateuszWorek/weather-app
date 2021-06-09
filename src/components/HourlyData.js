@@ -36,13 +36,13 @@ const HourlyData = () => {
         <span className="hourly-data__img"></span>
         <span className="hourly-data__time">Godzina</span>
         <span className="hourly-data__temp">Temperatura</span>
-        <span className="hourly-data__humidity">Wilgotność</span>
+        <span className="hourly-data__humidity">Prawd. opadów</span>
         <span className="hourly-data__clouds">Zachmurzenie</span>
         <span className="hourly-data__wind">Wiatr</span>
       </article>
       {
         hourlyData.map((hourData, key) => {
-          const { dt, temp, humidity, clouds, wind_speed } = hourData;
+          const { dt, temp, humidity, clouds, wind_speed, pop } = hourData;
           const { icon } = hourData.weather[0];
           // Current time
           const currentMs = dt * 1000;
@@ -53,7 +53,7 @@ const HourlyData = () => {
               <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon weather-data__icon--${ key }` } src={`https://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
               <span className={ `hourly-data__time hourly-data__time--${ key }` }>{ currentHour }:00</span>
               <span className={ `hourly-data__temp hourly-data__temp--${ key }` }>{ Math.floor(temp) }&#176;C</span>
-              <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ humidity }%</span>
+              <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ Math.floor(pop * 100) }%</span>
               <span className={ `hourly-data__clouds hourly-data__clouds--${ key }` }>{ clouds }%</span>
               <span className={ `hourly-data__wind hourly-data__wind--${ key }` }>{ Math.floor( 3.6 * wind_speed) }km/h</span>
             </article>

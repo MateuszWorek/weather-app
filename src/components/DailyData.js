@@ -40,7 +40,7 @@ const DailyData = () => {
         <span className="hourly-data__img"></span>
         <span className="hourly-data__time">Dzień<br />Tygodnia</span>
         <span className="hourly-data__temp">Temperatura<br />[dzień/ noc]</span>
-        <span className="hourly-data__humidity">Wilgotność</span>
+        <span className="hourly-data__humidity">Prawd. opadów</span>
         <span className="hourly-data__clouds">Zachmurzenie</span>
         <span className="hourly-data__wind">Wiatr</span>
       </article>
@@ -48,7 +48,7 @@ const DailyData = () => {
         dailyData.map((dayData, key) => {
           const { icon } = dayData.weather[0];
           const { day, night } = dayData.feels_like;
-          const { dt, humidity, clouds, wind_speed } = dayData;
+          const { dt, humidity, clouds, wind_speed, pop } = dayData;
           // Current time
           const currentMs = dt * 1000;
           const currentTime = new Date(currentMs);
@@ -60,7 +60,7 @@ const DailyData = () => {
               <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon--${ key }` } src={`https://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
               <span className={ `hourly-data__time hourly-data__time--${ key }` }>{ dayOfWeek }</span>
               <span className={ `hourly-data__temp hourly-data__temp--${ key }` }>{ Math.floor(day) }&#176;C / { Math.floor(night) }&#176;C</span>
-              <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ humidity }%</span>
+              <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ Math.floor(pop * 100) }%</span>
               <span className={ `hourly-data__clouds hourly-data__clouds--${ key }` }>{ clouds }%</span>
               <span className={ `hourly-data__wind hourly-data__wind--${ key }` }>{ Math.floor( 3.6 * wind_speed) } km/h</span>
             </article>
