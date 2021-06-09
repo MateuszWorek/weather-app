@@ -1,0 +1,22 @@
+.snow {
+  &__box {}
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    color: $dark-blue;
+  }
+
+  &__value {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      font-size: 1.75rem;
+    }
+  }
+}

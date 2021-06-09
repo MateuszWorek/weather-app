@@ -8,12 +8,14 @@ import Footer from './Footer';
 import HourlyData from './HourlyData';
 import DailyData from './DailyData';
 import Header from './Header';
+import Alerts from './Alerts';
 
 const Main = () => {
   const [city, setCity] = useState();
   const [weather, setWeather] = useState();
   const [error, setError] = useState();
   const [buttonIndex, setButtonIndex] = useState(0);
+  const [alerts, setAlerts] = useState(false);
   const API_KEY = "fae55a9eb9b61fa12c46478c7e44305b";
 
   const getApi = async (e) => {
@@ -33,6 +35,7 @@ const Main = () => {
     const oneResponse = await oneRequest.json();
     setWeather(oneResponse);
     setError(null);
+    setAlerts(oneResponse.alerts);
   };
 
   return (
@@ -47,6 +50,7 @@ const Main = () => {
             <button className={ `main__button main__button--7d${ buttonIndex }`} onClick={ () => setButtonIndex(2) }>7-Dni</button>
           </div>
           { error && <Error error={ error } /> }
+          { alerts && <Alerts alerts={ alerts } />}
           <span className={ 'weather' + buttonIndex }>{ weather && <WeatherData /> }</span>
           <span className={ 'hourly' + buttonIndex }>{ weather && <HourlyData /> }</span>
           <span className={ 'daily' + buttonIndex}>{ weather && <DailyData /> }</span>

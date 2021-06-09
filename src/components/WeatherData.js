@@ -4,10 +4,12 @@ import { BiCurrentLocation } from 'react-icons/bi';
 import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset } from 'react-icons/wi';
 import Icon from './Icon';
 import DateTime from './DateTime';
+import Rain from './Rain';
+import Snow from './Snow';
+import Alert from './Alerts';
 
 const WeatherData = () => {
   const { weather, city } = useContext(Context);
-  console.log(weather);
   const { main, description, icon, id } = weather.current.weather[0];
   const { temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, dt, sunrise, sunset } = weather.current;
   const floorTemp = Math.floor(temp);
@@ -22,6 +24,26 @@ const WeatherData = () => {
   const sunsetTime = new Date(sunsetMs);
   const sunsetHour = sunsetTime.getHours();
   const sunsetMinute = sunsetTime.getMinutes();
+  // Rain
+  let rain;
+  try {
+    rain = weather.current.rain["1h"];
+    // console.log(rain);
+  } catch (error) {
+    // console.log(rain);
+    console.log(error);
+  }
+  // Snow
+  let snow;
+  try {
+    snow = weather.current.snow["1h"];
+    console.log(snow);
+  } catch (error) {
+    console.log(snow);
+    console.log(error);
+  }
+
+  // console.log(weather);
 
   return (
    <div className="weather-data">
@@ -39,6 +61,8 @@ const WeatherData = () => {
         <span className="weather-data__property">
           <Icon />
           <p className="weather-data__description">{ description }</p>
+          <p>{ rain && <Rain /> }</p>
+          <p>{ snow && <Snow /> }</p>
         </span>
         <span className="weather-data__property">
           <p className="weather-data__title">Temperatura:</p>
