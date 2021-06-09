@@ -1,0 +1,99 @@
+.main {
+  height: 100%;
+  width: 95vw;
+  max-width: 1160px;
+  margin-bottom: 1rem;
+  box-shadow: 0 13px 40px -13px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media (min-width: $small-devices) {
+    width: 95vw;
+  }
+
+  @media (min-width: $medium-devices) {
+    width: 90vw;
+  }
+
+  @media (min-width: $large-devices) {
+    width: 85vw;
+  }
+
+  @media (min-width: $extra-large-devices) {
+    width: 80vw;
+  }
+
+  &__button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem 0;
+    width: 100%;
+
+    @media (min-width: $small-devices) {
+    }
+
+    @media (min-width: $medium-devices) {
+      flex-direction: row;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: $large-devices) {
+    }
+
+    @media (min-width: $extra-large-devices) {
+      margin: 2rem 0;
+    }
+  }
+  &__button {
+    background-color: $grey-1;
+    border: 2px solid $orange;
+    border-radius: 10px;
+    margin: 1rem;
+    width: 60%;
+
+    &:hover, &:active {
+      background-color: $orange;
+      color: white;
+    }
+
+    @media (min-width: $small-devices) {
+      width: 50%;
+    }
+
+    @media (min-width: $medium-devices) {
+      width: 40%;
+    }
+
+    @media (min-width: $large-devices) {
+      width: 30%;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      width: 30%;
+    }
+  }
+}
+
+.main__button.main__button--a0,
+.main__button.main__button--48h1,
+.main__button.main__button--7d2 {
+  background-color: $orange;
+  color: $grey-1;
+}
+
+.weather0,
+.hourly1,
+.daily2 {
+  display: block;
+}
+
+.hourly0,
+.daily0,
+.weather1,
+.daily1,
+.weather2,
+.hourly2 {
+  display: none;
+}

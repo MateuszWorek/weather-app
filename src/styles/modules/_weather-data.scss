@@ -1,0 +1,177 @@
+.weather-data {
+  text-align: center;
+
+  &__tagline {
+    color: $red;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+  }
+  &__location {
+    margin-right: 0.5rem;
+  }
+  &__city {
+    margin-left: 0.5rem;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+
+    @media (min-width: $small-devices) {}
+
+    @media (min-width: $medium-devices) {
+      padding-top: 2.5rem;
+    }
+
+    @media (min-width: $large-devices) {}
+
+    @media (min-width: $extra-large-devices) {}
+  }
+
+  &__property {
+    margin: 0 2rem;
+
+    @media (min-width: $large-devices) {
+      margin: 0 3rem;
+    }
+  }
+
+  &__description {
+    font-size: 1rem;
+    text-transform: lowercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__title {
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  &__value {
+    font-size: 3rem;
+    line-height: 0.8;
+    color: $red;
+
+    @media (min-width: $medium-devices) {
+      font-size: 3.5rem;
+    }
+    @media (min-width: $large-devices) {
+      font-size: 4rem;
+    }
+  }
+
+  &__value.weather-data__value--main {
+    font-size: 4rem;
+    line-height: 0.8;
+    color: $red;
+
+    @media (min-width: $medium-devices) {
+      font-size: 4.5rem;
+    }
+
+    @media (min-width: $large-devices) {
+      font-size: 5rem;
+    }
+  }
+
+  &__minor-title {
+    font-size: 1rem;
+    text-transform: lowercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__minor-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: $extra-large-devices) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__sun {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__border {
+    width: 50%;
+    height: 0.5rem;
+    background: rgb(255, 183, 3);
+    background: radial-gradient(circle, rgba(255, 183, 3, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    text-align: center;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    @include respond(largeTablet) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond(largePhone) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__icon--light-blue {
+    color: $light-blue;
+  }
+
+  &__icon--blue {
+    color: $blue;
+  }
+
+  &__icon--dark-blue {
+    color: $dark-blue;
+  }
+
+  &__icon--yellow {
+    color: $yellow;
+  }
+
+  &__icon--orange {
+    color: $orange;
+  }
+
+  &__icon--red {
+    color: $red;
+  }
+}
+

@@ -1,0 +1,25 @@
+.icon {
+  &__main {}
+
+  &__main--true svg {
+    color: $yellow;
+  }
+
+  &__main--false svg {
+    color: $dark-blue;
+  }
+
+  &__main svg {
+    width: 10rem;
+    height: 10rem;
+
+    @media (min-width: $medium-devices) {
+      width: 12rem;
+      height: 12rem;
+    }
+    @media (min-width: $extra-large-devices) {
+      width: 14rem;
+      height: 14rem;
+    }
+  }
+}

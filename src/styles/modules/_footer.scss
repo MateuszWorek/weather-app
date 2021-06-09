@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  letter-spacing: 0.5px;
+  background-color: $blue;
+
+  p {
+    margin-bottom: 0;
+    color: $grey-1;
+  }
+
+  a {
+    color: $orange;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
+}

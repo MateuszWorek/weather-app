@@ -1,0 +1,109 @@
+.hourly-data {
+  text-align: center;
+
+  &__tagline {
+    color: $red;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+  }
+
+  &__location {
+    margin-right: 0.5rem;
+  }
+
+  &__city {
+    margin-left: 0.5rem;
+  }
+
+  &__header {
+    padding: 2.5rem 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-weight: 600;
+    }
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (min-width: $small-devices) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: $medium-devices) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (min-width: $large-devices) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @media (min-width: $extra-large-devices) {}
+
+    &:nth-child(odd) {
+      background-color: $grey-1;
+      border-radius: 10px;
+    }
+    span {
+      align-self: center;
+      justify-self: center;
+
+      img {
+
+      }
+    }
+  }
+
+  &__row.hourly-data__row--header {
+    height: 4rem;
+    border-radius: 10px;
+  }
+
+  &__row--header {
+    span{
+      font-weight: 600;
+    }
+  }
+
+  &__row.hourly-data__row--header {
+    background-color: $grey-2;
+  }
+
+  &__humidity {
+    display: none;
+
+    @media (min-width: $small-devices) {
+      display: block;
+    }
+  }
+
+  &__clouds {
+    display: none;
+
+    @media (min-width: $medium-devices) {
+      display: block;
+    }
+  }
+
+  &__wind {
+    display: none;
+
+    @media (min-width: $large-devices) {
+      display: block;
+    }
+  }
+}
+
+
+
+// @media (min-width: $small-devices) {}
+
+@media (min-width: $medium-devices) {
+}
+
+@media (min-width: $large-devices) {}
+
+@media (min-width: $extra-large-devices) {}
