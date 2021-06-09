@@ -7,7 +7,7 @@ import DateTime from './DateTime';
 
 const WeatherData = () => {
   const { weather, city } = useContext(Context);
-  // console.log(weather);
+  console.log(weather);
   const { main, description, icon, id } = weather.current.weather[0];
   const { temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, dt, sunrise, sunset } = weather.current;
   const floorTemp = Math.floor(temp);
@@ -97,7 +97,7 @@ const WeatherData = () => {
         <span className="weather-data__minor-property">
           <WiHot className="weather-data__icon weather-data__icon--yellow" />
           <p className="weather-data__minor-title">Index UV</p>
-          <p className="weather-data__minor-value">{ uvi }</p>
+          <p className="weather-data__minor-value">{ uvi.toString().replace(/\./g, ",") }</p>
         </span>
         <span className="weather-data__minor-property">
           <WiSmallCraftAdvisory className="weather-data__icon weather-data__icon--orange" />

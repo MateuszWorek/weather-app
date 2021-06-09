@@ -18,11 +18,9 @@ const DailyData = () => {
   const currentMs = dt * 1000;
   const currentTime = new Date(currentMs);
   const currentDate = currentTime.getDate();
-  console.log(currentDate);
   const endTimeMs = currentMs + 604800000;
   const endTime = new Date(endTimeMs);
   const endDate = endTime.toLocaleDateString();
-  console.log(endDate);
 
   return (
     <div className="hourly-data">
