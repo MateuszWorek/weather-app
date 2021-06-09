@@ -50,7 +50,7 @@
     background-color: $grey-1;
     border: 2px solid $orange;
     border-radius: 10px;
-    margin: 1rem;
+    margin: 0.5rem;
     width: 60%;
 
     &:hover, &:active {
@@ -64,6 +64,7 @@
 
     @media (min-width: $medium-devices) {
       width: 40%;
+      margin: 1rem;
     }
 
     @media (min-width: $large-devices) {
@@ -72,6 +73,7 @@
 
     @media (min-width: $extra-large-devices) {
       width: 30%;
+      margin: 2rem;
     }
   }
 }

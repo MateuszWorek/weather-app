@@ -8,7 +8,7 @@
     font-weight: 600;
   }
   &__location {
-    margin-right: 0.5rem;
+    // margin-right: 0.5rem;
   }
   &__city {
     margin-left: 0.5rem;
@@ -32,7 +32,11 @@
   }
 
   &__property {
-    margin: 0 2rem;
+    margin: 0 0.25rem;
+
+    @media (min-width: $medium-devices) {
+      margin: 0 1rem;
+    }
 
     @media (min-width: $large-devices) {
       margin: 0 3rem;
@@ -71,9 +75,13 @@
   }
 
   &__value.weather-data__value--main {
-    font-size: 4rem;
+    font-size: 3.5rem;
     line-height: 0.8;
     color: $red;
+
+    @media (min-width: $small-devices) {
+      font-size: 4rem;
+    }
 
     @media (min-width: $medium-devices) {
       font-size: 4.5rem;
@@ -129,20 +137,17 @@
   }
 
   &__details {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem;
     margin: 2rem 0;
-    @include respond(largeTablet) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-    @include respond(largePhone) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
+     @media (min-width: $medium-devices) {
+        grid-template-columns: repeat(3, 1fr);
+     }
+
+     @media (min-width: $large-devices) {
+       grid-template-columns: repeat(6, 1fr);
+     }
   }
 
   &__icon {
