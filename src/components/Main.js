@@ -39,7 +39,7 @@ const Main = () => {
     setError(null);
 
     // Air Polution API
-    const airApiCall = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }`;
+    const airApiCall = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }`;
     const airRequest = await fetch(airApiCall);
     const airResponse = await airRequest.json();
     setAirPolution(airResponse);
