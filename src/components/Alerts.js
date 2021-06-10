@@ -14,12 +14,12 @@ const Alerts = () => {
 
   return (
     <article className="alerts">
-      <h2 className="alerts__heading"><WiStormWarning className="alerts__heading--icon" /> Alerty pogodowe</h2>
+      <h2 className="alerts__heading"><WiStormWarning className="alerts__heading--icon" /> Alert(y) pogodowe</h2>
       <div className="alerts__header">
-        <span>Alert</span>
-        <span>Opis</span>
-        <span>Początek</span>
-        <span>Koniec</span>
+        <span className="alerts__title">Alert</span>
+        <span className="alerts__desc">Opis</span>
+        <span className="alerts__starts">Początek</span>
+        <span className="alerts__ends">Koniec</span>
       </div>
 
       { alerts && alerts.map((alert, key) => {
@@ -34,10 +34,10 @@ const Alerts = () => {
 
         return (
           <div className="alerts__body" id={ key }>
-            <span>{ event }</span>
-            <span>{ description }</span>
-            <span>{ startDate }</span>
-            <span>{ endDate }</span>
+            <span className="alerts__title">{ event }</span>
+            <span className="alerts__desc">{ description }</span>
+            <span className="alerts__starts">{ startDate }</span>
+            <span className="alerts__ends">{ endDate }</span>
           </div>
         )
       }) }

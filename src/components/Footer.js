@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Powered by <a href="https://openweathermap.org/">OpenWeather<span>&trade;</span></a></p>
+      <p>Powered by OpenWeather<span>&trade;</span></p>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../Context';
 import { BiCurrentLocation } from 'react-icons/bi';
-import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset } from 'react-icons/wi';
+import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset, WiSmog } from 'react-icons/wi';
 import Icon from './Icon';
 import DateTime from './DateTime';
 import Rain from './Rain';
@@ -9,7 +9,53 @@ import Snow from './Snow';
 import Alert from './Alerts';
 
 const WeatherData = () => {
-  const { weather, city } = useContext(Context);
+  const { weather, city, airPolution } = useContext(Context);
+  let coValue, nh3Value, noValue, no2Value, o3Value, pm2_5Value, pm10Value, so2Value;
+  let coIndex, nh3Index, noIndex, no2Index, o3Index, pm2_5Index, pm10Index, so2Index;
+  let airIndex, airIndexDesc;
+
+  if(airPolution) {
+    try {
+      // General Air Polution Index
+      airIndex = airPolution.list[0].main.aqi;
+      airIndexDesc =
+        airIndex < 2 ? 'bardzo dobry' :
+          airIndex < 3 ? 'dobry' :
+            airIndex < 4 ? 'umiarkowany' :
+              airIndex < 5 ? 'dostateczny' : 'zły';
+      // Detail Air Polution Indexes
+      let { co, nh3, no, no2, o3, pm2_5, pm10, so2 } = airPolution.list[0].components;
+      coIndex = co <= 3 ? 1 :
+        co <= 7 ? 2 :
+          co <= 11 ? 3 :
+            co <= 15 ? 4 : 5;
+      no2Index = no2 <= 40 ? 1 :
+        no2 <= 100 ? 2 :
+          no2 <= 150 ? 3 :
+            no2 <= 200 ? 4 : 5;
+      o3Index = o3 <= 70 ? 1 :
+        o3 <= 120 ? 2 :
+          o3 <= 150 ? 3 :
+            o3 <= 180 ? 4 : 5;
+      pm2_5Index = pm2_5 <= 13 ? 1 :
+        pm2_5 <= 35 ? 2 :
+          pm2_5 <= 55 ? 3 :
+            pm2_5 <= 75 ? 4 : 5;
+      pm10Index = pm10 <= 20 ? 1 :
+        pm10 <= 50 ? 2 :
+          pm10 <= 80 ? 3 :
+            pm10 <= 110 ? 4 : 5;
+      so2Index = so2 <= 50 ? 1 :
+        so2 <= 100 ? 2 :
+          so2 <= 200 ? 3 :
+            so2 <= 350 ? 4 : 5;
+      console.log(co, nh3, no, no2, o3, pm2_5, pm10, so2);
+      [coValue, nh3Value, noValue, no2Value, o3Value, pm2_5Value, pm10Value, so2Value] = [co, nh3, no, no2, o3, pm2_5, pm10, so2];
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
   const { main, description, icon, id } = weather.current.weather[0];
   const { temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, dt, sunrise, sunset } = weather.current;
   const floorTemp = Math.floor(temp);
@@ -28,22 +74,16 @@ const WeatherData = () => {
   let rain;
   try {
     rain = weather.current.rain["1h"];
-    // console.log(rain);
   } catch (error) {
-    // console.log(rain);
     // console.log(error);
   }
   // Snow
   let snow;
   try {
     snow = weather.current.snow["1h"];
-    console.log(snow);
   } catch (error) {
-    // console.log(snow);
     // console.log(error);
   }
-
-  // console.log(weather);
 
   return (
    <div className="weather-data">
@@ -70,10 +110,15 @@ const WeatherData = () => {
           <p className="weather-data__title">Temperatura odczuwalna:</p>
           <p className="weather-data__value">{ floorFeelsTemp }&#176;C</p>
         </span>
+        <span className="weather-data__property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ airIndex }` } />
+          <p className="weather-data__title">Indeks jakości powietrza:</p>
+          <p className="weather-data__minor-value">{ airIndexDesc }</p>
+        </span>
       </div>
 
       <div className="weather-data__container">
-        <div className="weather-data__border"></div>
+        <div className="weather-data__border weather-data__border--yellow"></div>
       </div>
 
       {/* Sun Box */}
@@ -92,7 +137,7 @@ const WeatherData = () => {
       </div>
 
       <div className="weather-data__container">
-        <div className="weather-data__border"></div>
+        <div className="weather-data__border weather-data__border--light-blue"></div>
       </div>
 
       {/* Detail Box */}
@@ -126,6 +171,54 @@ const WeatherData = () => {
           <WiSmallCraftAdvisory className="weather-data__icon weather-data__icon--orange" />
           <p className="weather-data__minor-title">Widoczność</p>
           <p className="weather-data__minor-value">{ visibility.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") }km</p>
+        </span>
+      </div>
+
+      <div className="weather-data__container">
+        <div className="weather-data__border weather-data__border--blue"></div>
+      </div>
+
+      {/* Detail Box */}
+      <div className="weather-data__air">
+        <span className="weather-data__air-property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ coIndex }` } />
+          <p className="weather-data__air-title">CO</p>
+          <p className="weather-data__air-value">{ coValue && coValue.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className="weather-data__icon" />
+          <p className="weather-data__air-title">NH<sub>3</sub></p>
+          <p className="weather-data__air-value">{ nh3Value && nh3Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className="weather-data__icon" />
+          <p className="weather-data__air-title">NO</p>
+          <p className="weather-data__air-value">{ noValue && noValue.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ no2Index }` } />
+          <p className="weather-data__air-title">NO<sub>2</sub></p>
+          <p className="weather-data__air-value">{ no2Value && no2Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ o3Index }` } />
+          <p className="weather-data__air-title">O<sub>3</sub></p>
+          <p className="weather-data__air-value">{ o3Value && o3Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ pm2_5Index }` } />
+          <p className="weather-data__air-title">pm2,5</p>
+          <p className="weather-data__air-value">{ pm2_5Value && pm2_5Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ pm10Index }` } />
+          <p className="weather-data__air-title">pm10</p>
+          <p className="weather-data__air-value">{ pm10Value && pm10Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+        </span>
+        <span className="weather-data__air-property">
+          <WiSmog className={ `weather-data__icon weather-data__icon--${ so2Index }` } />
+          <p className="weather-data__air-title">SO<sub>2</sub></p>
+          <p className="weather-data__air-value">{ so2Value && so2Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
         </span>
       </div>
     </div>

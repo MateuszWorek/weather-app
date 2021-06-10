@@ -27,7 +27,15 @@
   &__body,
   &__header {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+
+    @media (min-width: $small-devices) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $large-devices) {
+      grid-template-columns: 2fr 2fr 1fr 1fr;
+    }
 
     &:nth-child(odd) {
       background-color: $grey-1;
@@ -36,5 +44,24 @@
 
   &__header {
     font-weight: 600;
+  }
+
+  &__starts,
+  &__ends,
+  &__title {
+    display: none;
+  }
+
+  @media (min-width: $small-devices) {
+    &__title {
+      display: block;
+    }
+  }
+
+  @media (min-width: $large-devices) {
+    &__starts,
+    &__ends {
+      display: block;
+    }
   }
 }

@@ -16,6 +16,7 @@
 
   &__box {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
@@ -24,6 +25,7 @@
 
     @media (min-width: $medium-devices) {
       padding-top: 2.5rem;
+      flex-direction: row;
     }
 
     @media (min-width: $large-devices) {}
@@ -131,9 +133,20 @@
   &__border {
     width: 50%;
     height: 0.5rem;
-    background: rgb(255, 183, 3);
-    background: radial-gradient(circle, rgba(255, 183, 3, 1) 0%, rgba(255, 255, 255, 1) 100%);
     text-align: center;
+
+    &--yellow {
+      background: rgb(255, 183, 3);
+      background: radial-gradient(circle, rgba(255, 183, 3, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    &--light-blue {
+      background: rgb(142, 202, 230);
+      background: radial-gradient(circle, rgba(142, 202, 230, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    &--blue {
+      background: rgb(108, 117, 125);
+      background: radial-gradient(circle, rgba(108, 117, 125, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
   }
 
   &__details {
@@ -150,16 +163,57 @@
      }
   }
 
+  &__air {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: $medium-devices) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: $extra-large-devices) {
+      // grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
+  &__air-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__air-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      font-size: 1.75rem;
+    }
+  }
+
   &__icon {
     width: 4rem;
     height: 4rem;
+    color: $grey-4;
   }
 
-  &__icon--light-blue {
+  &__icon--light-blue,
+  &__icon--1 {
     color: $light-blue;
   }
 
-  &__icon--blue {
+  &__icon--blue,
+  &__icon--2 {
     color: $blue;
   }
 
@@ -167,15 +221,18 @@
     color: $dark-blue;
   }
 
-  &__icon--yellow {
+  &__icon--yellow,
+  &__icon--3 {
     color: $yellow;
   }
 
-  &__icon--orange {
+  &__icon--orange,
+  &__icon--4 {
     color: $orange;
   }
 
-  &__icon--red {
+  &__icon--red,
+  &__icon--5 {
     color: $red;
   }
 }
