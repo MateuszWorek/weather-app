@@ -3,14 +3,14 @@ import Header from '../components/Header';
 import Content from '../components/Content';
 import Footer from '../components/Footer';
 
-const Blog = () => {
+const AlertsPage = () => {
   return (
     <div className="main">
       <Header />
-      <Content></Content>
+      <Content>alerty</Content>
       <Footer />
     </div>
   )
 }
 
-export default Blog
+export default AlertsPage

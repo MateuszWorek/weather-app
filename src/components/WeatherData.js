@@ -49,7 +49,7 @@ const WeatherData = () => {
         so2 <= 100 ? 2 :
           so2 <= 200 ? 3 :
             so2 <= 350 ? 4 : 5;
-      console.log(co, nh3, no, no2, o3, pm2_5, pm10, so2);
+      // console.log(co, nh3, no, no2, o3, pm2_5, pm10, so2);
       [coValue, nh3Value, noValue, no2Value, o3Value, pm2_5Value, pm10Value, so2Value] = [co, nh3, no, no2, o3, pm2_5, pm10, so2];
     } catch (error) {
       // console.log(error);

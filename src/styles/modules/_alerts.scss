@@ -1,3 +1,21 @@
+legend {
+  width: 60vw;
+  float: none;
+
+  @media (min-width: $small-devices) {
+    width: 50vw;
+  }
+  @media (min-width: $medium-devices) {
+     width: 40vw;
+  }
+  @media (min-width: $large-devices) {
+    width: 30vw;
+  }
+  @media (min-width: $extra-large-devices) {
+    width: 20vw;
+  }
+}
+
 .alerts {
   margin: 1rem 0 3rem;
   text-align: center;
@@ -15,7 +33,6 @@
     font-size: 1.5rem;
     line-height: 1.75rem;
     font-weight: 600;
-    padding-bottom: 0.5rem;
 
     &--icon {
       margin-top: -1rem;
@@ -29,13 +46,13 @@
     display: grid;
     grid-template-columns: 1fr;
 
-    @media (min-width: $small-devices) {
-      grid-template-columns: 1fr 1fr;
-    }
+    // @media (min-width: $small-devices) {
+    //   grid-template-columns: 1fr 1fr;
+    // }
 
-    @media (min-width: $large-devices) {
-      grid-template-columns: 1fr 2fr 1fr;
-    }
+    // @media (min-width: $large-devices) {
+    //   grid-template-columns: 1fr 2fr 1fr;
+    // }
 
     &:nth-child(odd) {
       background-color: $grey-1;
@@ -46,22 +63,69 @@
     font-weight: 600;
   }
 
-  &__starts,
-  &__ends,
+  &__button {
+    text-decoration: none;
+    border: 2px solid $red;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: $red;
+    background: transparent;
+    margin-bottom: 0.5rem;
+    transition: all ease 0.25s;
+
+    &:hover {
+      color: $white;
+      background-color: $red;
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+
   &__title {
+    color: $red;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-top: 0.5rem;
+  }
+
+  &__date {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding-top: 0.5rem;
+  }
+  &__desc {
+    line-height: 1.75rem;
+    padding: 0 2.5rem 0;
+    text-align: justify;
+  }
+
+  &__date--false,
+  &__desc--false {
     display: none;
   }
 
-  @media (min-width: $small-devices) {
-    &__title {
-      display: block;
-    }
+  &__date--true,
+  &__desc--true {
+    display: block;
   }
 
-  @media (min-width: $large-devices) {
-    &__starts,
-    &__ends {
-      display: block;
-    }
-  }
+  // &__date,
+  // &__title {
+  //   display: none;
+  // }
+
+  // @media (min-width: $small-devices) {
+  //   &__title {
+  //     display: block;
+  //   }
+  // }
+
+  // @media (min-width: $large-devices) {
+  //   &__date {
+  //     display: block;
+  //   }
+  // }
 }

@@ -19,6 +19,7 @@ const Home = () => {
   const [buttonIndex, setButtonIndex] = useState(0);
   const [alerts, setAlerts] = useState(false);
   const API_KEY = "fae55a9eb9b61fa12c46478c7e44305b";
+  let alertsTabLength, alertEvent;
 
   const getApi = async (e) => {
     e.preventDefault();
@@ -38,7 +39,6 @@ const Home = () => {
     setWeather(oneResponse);
     setAlerts(oneResponse.alerts);
     setError(null);
-    console.log(oneApiCall);
 
     // Air Polution API
     const airApiCall = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }`;
