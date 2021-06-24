@@ -3,10 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: $blue;
 
-  &__add {
-    width: 728px;
-    height: 90px;
+  &__add {   
     background-position: center;
   }
 }

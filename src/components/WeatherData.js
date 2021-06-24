@@ -19,10 +19,10 @@ const WeatherData = () => {
       // General Air Polution Index
       airIndex = airPolution.list[0].main.aqi;
       airIndexDesc =
-        airIndex < 2 ? 'bardzo dobry' :
-          airIndex < 3 ? 'dobry' :
-            airIndex < 4 ? 'umiarkowany' :
-              airIndex < 5 ? 'dostateczny' : 'zły';
+        airIndex < 2 ? 'bardzo dobra' :
+          airIndex < 3 ? 'dobra' :
+            airIndex < 4 ? 'umiarkowana' :
+              airIndex < 5 ? 'dostateczna' : 'zła';
       // Detail Air Polution Indexes
       let { co, nh3, no, no2, o3, pm2_5, pm10, so2 } = airPolution.list[0].components;
       coIndex = co <= 3 ? 1 :

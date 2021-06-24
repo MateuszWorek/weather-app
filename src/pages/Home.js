@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import Content from './Content';
-import WeatherSearch from './WeatherSearch';
-import WeatherData from './WeatherData';
+import Content from '../components/Content';
+import WeatherSearch from '../components/WeatherSearch';
+import WeatherData from '../components/WeatherData';
 import Context from '../Context';
-import Error from './Error';
-import Footer from './Footer';
-import HourlyData from './HourlyData';
-import DailyData from './DailyData';
-import Header from './Header';
-import Alerts from './Alerts';
-import Navbar from './Navbar';
+import Error from '../components/Error';
+import Footer from '../components/Footer';
+import HourlyData from '../components/HourlyData';
+import DailyData from '../components/DailyData';
+import Header from '../components/Header';
+import Alerts from '../components/Alerts';
+import Navbar from '../components/Navbar';
 
-const Main = () => {
+const Home = () => {
   const [city, setCity] = useState();
   const [weather, setWeather] = useState();
   const [airPolution, setAirPolution] = useState();
@@ -38,6 +38,7 @@ const Main = () => {
     setWeather(oneResponse);
     setAlerts(oneResponse.alerts);
     setError(null);
+    console.log(oneApiCall);
 
     // Air Polution API
     const airApiCall = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }`;
@@ -69,4 +70,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Home

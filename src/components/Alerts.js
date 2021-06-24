@@ -18,8 +18,7 @@ const Alerts = () => {
       <div className="alerts__header">
         <span className="alerts__title">Alert</span>
         <span className="alerts__desc">Opis</span>
-        <span className="alerts__starts">Początek</span>
-        <span className="alerts__ends">Koniec</span>
+        <span className="alerts__starts">Początek/ Koniec</span>
       </div>
 
       { alerts && alerts.map((alert, key) => {
@@ -30,14 +29,16 @@ const Alerts = () => {
         const endMs = end * 1000;
         const endTime = new Date(endMs);
         const endDate = endTime.toLocaleDateString();
+        const regex = /(%lf)/g;
+        const corrDesc = description.replace(regex, "\n");
         console.log(endDate);
+        console.log(corrDesc);
 
         return (
           <div className="alerts__body" id={ key }>
             <span className="alerts__title">{ event }</span>
-            <span className="alerts__desc">{ description }</span>
-            <span className="alerts__starts">{ startDate }</span>
-            <span className="alerts__ends">{ endDate }</span>
+            <span className="alerts__desc">{ corrDesc }</span>
+            <span className="alerts__starts">{ startDate }/ { endDate }</span>
           </div>
         )
       }) }

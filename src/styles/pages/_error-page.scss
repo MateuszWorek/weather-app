@@ -1,0 +1,47 @@
+.error {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__header {
+    font-size: 5rem;
+    font-weight: 600;
+    color: $red;
+    margin: 2.5rem 0;
+  }
+  &__message {
+    font-size: 1.5rem;
+    margin: 2rem;
+
+    @media (min-width: $medium-devices) {
+      font-size: 2rem;
+    }
+  }
+  &__link {
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $orange;
+    padding: 1rem 2rem;
+    letter-spacing: 1px;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $orange;
+    border-radius: 10px;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $grey-1;
+      background-color: $orange;
+    }
+  }
+}

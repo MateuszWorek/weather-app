@@ -1,0 +1,104 @@
+.navbar {
+  width: 100%;
+  max-width: 1160px;
+  background-color: $white;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 13px 40px -13px rgba(0, 0, 0, 0.75);
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+
+  @media (min-width: $small-devices) {
+    width: 95vw;
+  }
+
+  @media (min-width: $medium-devices) {
+    width: 90vw;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: $large-devices) {
+    width: 85vw;
+  }
+
+  @media (min-width: $extra-large-devices) {
+    width: 80vw;
+  }
+
+  &__icon {
+    display: none;
+    color: $yellow;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+
+    @media (min-width: $large-devices) {
+      display: block;
+    }
+  }
+
+  &__heading {
+    display: none;
+    color: $blue;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    word-spacing: 0.1rem;
+    font-weight: 600;
+
+    &:hover {
+      a, svg {
+        color: $orange;
+      }
+    }
+
+    @media (min-width: $large-devices) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__links {
+    margin: 0;
+    padding: 1rem 0;
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: transparent;
+    color: $orange;
+    border: 2px solid $orange;
+    border-radius: 10px;
+    margin: 0 1rem;
+    padding: 1rem 2rem;
+
+    &:hover {
+      background-color: $orange;
+      color: $white;
+    }
+
+    &--main {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: $yellow;
+    }
+  }
+}
