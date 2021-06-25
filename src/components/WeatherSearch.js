@@ -11,8 +11,8 @@ const WeatherSearch = () => {
         <div className="weather-search__submit">
           <button className="weather-search__button">
             <BiSearchAlt className="weather-search__icon" />
-            <span>prognoza</span>
-            <span className="weather-search__btn-text">pogody</span>
+            <span>szukaj</span>
+            <span className="weather-search__btn-text">prognozy</span>
           </button>
         </div>
       </form>
