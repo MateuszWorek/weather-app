@@ -89,7 +89,21 @@ legend {
     font-size: 1.5rem;
     font-weight: 600;
     padding-top: 0.5rem;
+
+    svg {
+      width: 50px;
+      height: 50px;
+      margin-top: -10px;
+    }
   }
+
+  // &__icon {
+  //   svg {
+  //     color: $red;
+  //     width: 75px;
+  //     height: 75px;
+  //   }
+  // }
 
   &__date {
     font-size: 1.25rem;
@@ -103,12 +117,14 @@ legend {
   }
 
   &__date--false,
-  &__desc--false {
+  &__desc--false,
+  &__icon--false {
     display: none;
   }
 
   &__date--true,
-  &__desc--true {
+  &__desc--true,
+  &__icon--true {
     display: block;
   }
 

@@ -101,4 +101,27 @@
       color: $yellow;
     }
   }
+
+  &__link-text {
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+    width: 25vw;
+
+    @media (min-width: $small-devices) {
+      width: 20vw;
+    }
+
+    @media (min-width: $medium-devices) {
+      width: 15vw;
+    }
+
+    @media (min-width: $large-devices) {
+      width: 10vw;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      width: 10vw;
+    }
+  }
 }

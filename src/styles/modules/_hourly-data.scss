@@ -50,7 +50,9 @@
       grid-template-columns: repeat(6, 1fr);
     }
 
-    @media (min-width: $extra-large-devices) {}
+    @media (min-width: $extra-large-devices) {
+      grid-template-columns: repeat(7, 1fr);
+    }
 
     &:nth-child(odd) {
       background-color: $grey-1;
@@ -92,7 +94,7 @@
   &__clouds {
     display: none;
 
-    @media (min-width: $medium-devices) {
+    @media (min-width: $large-devices) {
       display: block;
     }
   }
@@ -100,7 +102,15 @@
   &__wind {
     display: none;
 
-    @media (min-width: $large-devices) {
+    @media (min-width: $medium-devices) {
+      display: block;
+    }
+  }
+
+  &__desc {
+    display: none;
+
+    @media (min-width: $extra-large-devices) {
       display: block;
     }
   }

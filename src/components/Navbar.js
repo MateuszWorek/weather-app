@@ -15,8 +15,8 @@ export class Navbar extends Component {
         </div>
         <div className="navbar__center">
           <ul className="navbar__links">
-            <Link className="navbar__link" to="/">prognoza</Link>
-            <Link className="navbar__link" to="/blog">blog</Link>
+            <Link className="navbar__link" to="/"><span className="navbar__link-text">prognoza</span></Link>
+            <Link className="navbar__link" to="/blog"><span className="navbar__link-text">blog</span></Link>
           </ul>
         </div>
       </nav>

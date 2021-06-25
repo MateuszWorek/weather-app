@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Context from '../Context';
-import { WiStormWarning } from 'react-icons/wi';
+import { WiStormWarning, WiStrongWind, WiThermometer, WiThunderstorm } from 'react-icons/wi';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -9,12 +9,12 @@ const Alerts = () => {
   let alerts, alertIcon;
   try {
     alerts = weather.alerts;
-    console.log(alerts);
+    // console.log(alerts);
   } catch (error) {
     console.log(error);
   }
   const [alertDesc, setAlertDesc] = useState(false);
-  console.log(alertDesc);
+  // console.log(alertDesc);
 
   return (
       <fieldset className="alerts">
@@ -44,23 +44,23 @@ const Alerts = () => {
           let eventPl, eventIcon;
 
           if(event == 'Red Thunderstorm warning') {
-            eventPl = 'Burze z gradem (stopnia III)';
-            alertIcon = <WiStormWarning />;
+            eventPl = 'Burze z gradem (III stopnia)';
+            alertIcon = <WiThunderstorm />;
           } else if(event == 'Orange Thunderstorm warning') {
-            eventPl = 'Burze z gradem (stopnia II)';
-            alertIcon = <WiStormWarning />;
-          } else if(event == 'Thunderstorm warning') {
-            eventPl = 'Burze z gradem (stopnia I)';
-            alertIcon = <WiStormWarning />;
+            eventPl = 'Burze z gradem (II stopnia)';
+            alertIcon = <WiThunderstorm />;
+          } else if(event == 'Yellow Thunderstorm warning') {
+            eventPl = 'Burze z gradem (I stopnia)';
+            alertIcon = <WiThunderstorm />;
           } else if(event == 'Red high-temperature warning') {
-            eventPl = 'Upał (stopnia III)';
-            alertIcon = <WiStormWarning />;
+            eventPl = 'Upał (III stopnia)';
+            alertIcon = <WiThermometer />;
           } else if(event == 'Orange high-temperature warning') {
-            eventPl = 'Upał (stopnia II)';
-            alertIcon = <WiStormWarning />;
-          } else if(event == 'High-temperature warning') {
-            eventPl = 'Upał (stopnia I)';
-            alertIcon = <WiStormWarning />;
+            eventPl = 'Upał (II stopnia)';
+            alertIcon = <WiThermometer />;
+          } else if(event == 'Yellow High-temperature warning') {
+            eventPl = 'Upał (I stopnia)';
+            alertIcon = <WiThermometer />;
           } else {
             eventPl = event;
           }
@@ -68,6 +68,7 @@ const Alerts = () => {
           return (
             <div className="alerts__body" id={ key }>
               <span className={ `alerts__title` }>{ alertIcon }{ eventPl }</span>
+              {/* <span className={ `alerts__icon alerts__icon--${ alertDesc }` }>{ alertIcon }</span> */}
               <span className={ `alerts__date alerts__date--${ alertDesc }` }>{ startDate }/ { endDate }</span>
               <span className={ `alerts__desc alerts__desc--${ alertDesc }` }>{ corrDesc }</span>
             </div>

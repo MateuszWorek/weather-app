@@ -1,6 +1,6 @@
 .main {
   height: 100%;
-  width: 95vw;
+  width: 100vw;
   max-width: 1160px;
   margin-bottom: 1rem;
   box-shadow: 0 13px 40px -13px rgba(0, 0, 0, 0.75);
@@ -47,7 +47,6 @@
     }
   }
   &__button {
-    background-color: $grey-1;
     border: 2px solid $orange;
     border-radius: 10px;
     margin: 0.5rem;

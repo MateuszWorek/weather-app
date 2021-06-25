@@ -38,6 +38,7 @@ const DailyData = () => {
       </article>
       <article className="hourly-data__row hourly-data__row--header">
         <span className="hourly-data__img"></span>
+        <span className="hourly-data__desc"></span>
         <span className="hourly-data__time">Dzień<br />Tygodnia</span>
         <span className="hourly-data__temp">Temperatura<br />[dzień/ noc]</span>
         <span className="hourly-data__humidity">Prawd. opadów</span>
@@ -54,12 +55,15 @@ const DailyData = () => {
           const currentTime = new Date(currentMs);
           let currentDay = currentTime.getDay();
           let dayOfWeek = daysOfWeek[currentDay];
+          const dailyDesc = dayData.weather[0].description;
+          {/* console.log(dayData.weather[0].description); */}
 
           return (
             <article className="hourly-data__row" id={ key }>
               <span className={ `hourly-data__img hourly-data__img--${ key }` }>{ <img className={ `weather-data__icon--${ key }` } src={`https://openweathermap.org/img/wn/${ icon }@2x.png`} alt="" /> }</span>
+              <span className={ `hourly-data__desc hourly-data__desc--${ key }` }>{ dailyDesc }</span>
               <span className={ `hourly-data__time hourly-data__time--${ key }` }>{ dayOfWeek }</span>
-              <span className={ `hourly-data__temp hourly-data__temp--${ key }` }>{ Math.floor(day) }&#176;C / { Math.floor(night) }&#176;C</span>
+              <span className={ `hourly-data__temp hourly-data__temp--${ key }` }><strong>{ Math.floor(day) }&#176;C</strong> / { Math.floor(night) }&#176;C</span>
               <span className={ `hourly-data__humidity hourly-data__humidity--${ key }` }>{ Math.floor(pop * 100) }%</span>
               <span className={ `hourly-data__clouds hourly-data__clouds--${ key }` }>{ clouds }%</span>
               <span className={ `hourly-data__wind hourly-data__wind--${ key }` }>{ Math.floor( 3.6 * wind_speed) } km/h</span>
