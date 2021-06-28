@@ -1,0 +1,63 @@
+.icon-wind {
+
+  &--true svg {
+    color: $yellow;
+  }
+
+  &--false svg {
+    color: $dark-blue;
+  }
+
+  & svg {
+    width: 6rem;
+    height: 6rem;
+    margin: 2rem 0;
+
+    @media (min-width: $medium-devices) {
+      width: 6rem;
+      height: 6rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      width: 8rem;
+      height: 8rem;
+      margin: 2rem 0;
+    }
+  }
+
+  &--{
+    &N {
+      transform: rotate(360deg);
+    }
+
+    &NW {
+      transform: rotate(315deg);
+    }
+
+    &W {
+      transform: rotate(270deg);
+    }
+
+    &SW {
+      transform: rotate(225deg);
+    }
+
+    &S {
+      transform: rotate(180deg);
+    }
+
+    &SE {
+      transform: rotate(135deg);
+    }
+
+    &E {
+      transform: rotate(90deg);
+    }
+
+    &NE {
+      transform: rotate(45deg);
+    }
+  }
+}
+

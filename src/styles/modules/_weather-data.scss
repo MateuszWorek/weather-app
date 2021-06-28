@@ -1,6 +1,29 @@
 .weather-data {
   text-align: center;
 
+  &__form {}
+  &__input {
+    display: none;
+  }
+  &__button {
+    border: none;
+    padding: 0;
+    font-size: 2.5rem;
+
+    &:hover {
+      animation: roll 2.5s infinite;
+    }
+  }
+
+  @keyframes roll {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   &__tagline {
     color: $red;
     font-size: 2rem;
@@ -14,18 +37,34 @@
     margin-left: 0.5rem;
   }
 
-  &__box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 0;
+  &__time {
 
-    @media (min-width: $small-devices) {}
+    svg {
+      color: $orange;
+      width: 3rem;
+      height: 3rem;
+      margin-top: -0.3rem;
+    }
+
+  }
+
+  &__box {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // flex-wrap: nowrap;
+    // align-content: stretch;
+    // align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding-bottom: 2.5rem;
+
+    @media (min-width: $small-devices) {
+    }
 
     @media (min-width: $medium-devices) {
-      padding-top: 2.5rem;
-      flex-direction: row;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     @media (min-width: $large-devices) {}
@@ -36,28 +75,39 @@
   &__property {
     margin: 0 0.25rem;
 
-    @media (min-width: $medium-devices) {
+    @media (min-width: $large-devices) {
       margin: 0 1rem;
     }
 
-    @media (min-width: $large-devices) {
-      margin: 0 3rem;
+    @media (min-width: $extra-large-devices) {
+      margin: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 
   &__description {
-    font-size: 1rem;
+    font-size: 1.25rem;
+    line-height: 3rem;
     text-transform: lowercase;
     font-weight: 600;
     letter-spacing: 1px;
 
-    @media (min-width: $large-devices) {
-      font-size: 1.25rem;
+    svg {
+      color: $blue;
+      font-size: 3rem;
+      margin-top: -0.35rem;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      font-size: 1.5rem;
     }
   }
 
   &__title {
     font-size: 1rem;
+    line-height: 2.5rem;
     text-transform: capitalize;
     font-weight: 600;
     letter-spacing: 1px;
@@ -68,29 +118,29 @@
     line-height: 0.8;
     color: $red;
 
-    @media (min-width: $medium-devices) {
+    @media (min-width: $large-devices) {
       font-size: 3.5rem;
     }
-    @media (min-width: $large-devices) {
+    @media (min-width: $extra-large-devices) {
       font-size: 4rem;
     }
   }
 
   &__value.weather-data__value--main {
-    font-size: 3.5rem;
+    font-size: 5rem;
     line-height: 0.8;
     color: $red;
 
-    @media (min-width: $small-devices) {
+    @media (min-width: $large-devices) {
       font-size: 4rem;
     }
 
-    @media (min-width: $medium-devices) {
-      font-size: 4.5rem;
+    @media (min-width: $extra-large-devices) {
+      font-size: 5.5rem;
     }
 
     @media (min-width: $large-devices) {
-      font-size: 5rem;
+      font-size: 6.5rem;
     }
   }
 
@@ -118,10 +168,13 @@
   }
 
   &__sun {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 2rem 0;
+
+    @media (min-width: $small-devices) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &__container {
@@ -155,11 +208,10 @@
     grid-template-columns: repeat(2, 1fr);
 
      @media (min-width: $medium-devices) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
      }
 
      @media (min-width: $large-devices) {
-       grid-template-columns: repeat(6, 1fr);
      }
   }
 
@@ -201,10 +253,25 @@
     }
   }
 
+  &__title svg {
+    margin-top: -0.2rem;
+    width: 2rem;
+    height: 2rem;
+    color: $orange;
+
+    @media (min-width: $medium-devices) {
+    }
+
+    @media (min-width: $extra-large-devices) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
   &__icon {
     width: 4rem;
     height: 4rem;
-    color: $grey-4;
+    color: $grey-6;
   }
 
   &__icon--light-blue,

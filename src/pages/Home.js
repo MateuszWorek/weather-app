@@ -23,28 +23,49 @@ const Home = () => {
 
   const getApi = async (e) => {
     e.preventDefault();
+
+    // Location
     const location = e.target.elements.location.value;
     if(!location) return setError(`Wprowadź poprawną nazwę miejscowości.`), setWeather(null);
+
     // Geocoding API
     const geoApiCall = `https://api.openweathermap.org/geo/1.0/direct?q=${ location }&limit=1&appid=${ API_KEY }`;
     const geoRequest = await fetch(geoApiCall);
     const geoResponse = await geoRequest.json();
-    setCity(geoResponse[0].name);
+    try {
+      const cityName = geoResponse[0].local_names.pl ? geoResponse[0].local_names.pl : geoResponse[0].local_names.feature_name;
+      setCity(cityName);
+    } catch (error) {
+      console.log(error);
+      setError(`Wprowadź poprawną nazwę miejscowości.`);
+      setWeather(null);
+    }
+
 
     // One Call API
-    const oneApiCall =
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }&units=metric&lang=pl`;
-    const oneRequest = await fetch(oneApiCall);
-    const oneResponse = await oneRequest.json();
-    setWeather(oneResponse);
-    setAlerts(oneResponse.alerts);
-    setError(null);
+    try {
+      const oneApiCall =
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }&units=metric&lang=pl`;
+      const oneRequest = await fetch(oneApiCall);
+      const oneResponse = await oneRequest.json();
+      setWeather(oneResponse);
+      setAlerts(oneResponse.alerts);
+      setError(null);
+    } catch (error) {
+      console.log(error);
+      setError(`Wprowadź poprawną nazwę miejscowości.`);
+      setWeather(null);
+    }
 
     // Air Polution API
-    const airApiCall = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }`;
-    const airRequest = await fetch(airApiCall);
-    const airResponse = await airRequest.json();
-    setAirPolution(airResponse);
+    try {
+      const airApiCall = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${ geoResponse[0].lat }&lon=${ geoResponse[0].lon }&appid=${ API_KEY }`;
+      const airRequest = await fetch(airApiCall);
+      const airResponse = await airRequest.json();
+      setAirPolution(airResponse);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

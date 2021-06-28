@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Context from '../Context';
 import { BiCurrentLocation } from 'react-icons/bi';
 import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset, WiSmog } from 'react-icons/wi';
-import Icon from './Icon';
-import DateTime from './DateTime';
+import IconMain from './IconMain';
+import IconWind from './IconWind';
+import CurrentDate from './CurrentDate';
+import CurrentDay from './CurrentDay';
+import CurrentTime  from './CurrentTime';
 import Rain from './Rain';
 import Snow from './Snow';
 import Alert from './Alerts';
+import { WiRefresh } from 'react-icons/wi';
 
 const WeatherData = () => {
-  const { weather, city, airPolution } = useContext(Context);
+  const { weather, city, airPolution, getApi } = useContext(Context);
   let coValue, nh3Value, noValue, no2Value, o3Value, pm2_5Value, pm10Value, so2Value;
   let coIndex, nh3Index, noIndex, no2Index, o3Index, pm2_5Index, pm10Index, so2Index;
   let airIndex, airIndexDesc;
@@ -57,7 +61,7 @@ const WeatherData = () => {
   }
 
   const { main, description, icon, id } = weather.current.weather[0];
-  const { temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, dt, sunrise, sunset } = weather.current;
+  const { temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, dt, sunrise, sunset, wind_deg } = weather.current;
   const floorTemp = Math.floor(temp);
   const floorFeelsTemp = Math.floor(feels_like);
   // Sunrise
@@ -85,24 +89,49 @@ const WeatherData = () => {
     // console.log(error);
   }
 
+  // Wind description
+  const [currWindDesc, setCurrWindDesc] = useState("");
+  let windDesc;
+
+  useEffect(() => {
+    windDesc =
+      wind_deg > 315 ? "północny" :
+        wind_deg > 270 ? "północno-zachodni" :
+          wind_deg > 225 ? "zachodni" :
+            wind_deg > 180 ? "południow-zachodni" :
+              wind_deg > 135 ? "południowy" :
+                wind_deg > 90 ? "południowo-wchodni" :
+                  wind_deg > 45 ? "wschodni" : "pólnocno-wschodni";
+    setCurrWindDesc(windDesc);
+  }, [{wind_deg}]);
+
+
   return (
    <div className="weather-data">
     <article className="weather-data__location">
       <h1 className="weather-data__tagline">
         <BiCurrentLocation className="weather-data__location" />
         <span className="weather-data__city">
-          { city }, <DateTime />
+          { city }<CurrentDay /><CurrentDate />
         </span>
+        <p className="weather-data__time">
+          <form className="weather-data__form" onSubmit={ getApi }>
+            <input className="weather-data__input" type="text" name="location" value={ city } />
+            <CurrentTime />
+            <button className="weather-data__button"><WiRefresh /></button>
+          </form>
+        </p>
       </h1>
     </article>
 
       {/* Main Box */}
       <div className="weather-data__box">
         <span className="weather-data__property">
-          <Icon />
+          <IconMain />
+          <p className="weather-data__title weather-data">{ rain && `Wielkość opadów deszczu:` }{ snow && "Wielkość opadów śniegu:" }</p>
+          <p className="weather-data__description">{ rain && <Rain /> }</p>
+          <p className="weather-data__description">{ snow && <Snow /> }</p>
           <p className="weather-data__description">{ description }</p>
-          <p>{ rain && <Rain /> }</p>
-          <p>{ snow && <Snow /> }</p>
         </span>
         <span className="weather-data__property">
           <p className="weather-data__title">Temperatura:</p>
@@ -111,9 +140,11 @@ const WeatherData = () => {
           <p className="weather-data__value">{ floorFeelsTemp }&#176;C</p>
         </span>
         <span className="weather-data__property">
-          <WiSmog className={ `weather-data__icon weather-data__icon--${ airIndex }` } />
-          <p className="weather-data__title">Indeks jakości powietrza:</p>
-          <p className="weather-data__minor-value">{ airIndexDesc }</p>
+          <IconWind />
+          <p className="weather-data__title">kierunek wiatru:</p>
+          <p className="weather-data__description">{ currWindDesc }</p>
+          <p className="weather-data__description"></p>
+          <p className="weather-data__description">Lekki { <WiStrongWind /> } { Math.floor( 3.6 * wind_speed) }km/h</p>
         </span>
       </div>
 
@@ -134,6 +165,11 @@ const WeatherData = () => {
           <p className="weather-data__minor-title">zachód słońca</p>
           <p className="weather-data__minor-value">{ sunsetHour }:{ sunsetMinute }</p>
         </span>
+        <span className="weather-data__minor-property">
+          <WiHot className="weather-data__icon weather-data__icon--yellow" />
+          <p className="weather-data__minor-title">index UV</p>
+          <p className="weather-data__minor-value">{ uvi.toString().replace(/\./g, ",") }</p>
+        </span>
       </div>
 
       <div className="weather-data__container">
@@ -153,19 +189,9 @@ const WeatherData = () => {
           <p className="weather-data__minor-value">{ humidity }%</p>
         </span>
         <span className="weather-data__minor-property">
-          <WiStrongWind className="weather-data__icon weather-data__icon--light-blue" />
-          <p className="weather-data__minor-title">Wiatr</p>
-          <p className="weather-data__minor-value">{ Math.floor( 3.6 * wind_speed) }km/h</p>
-        </span>
-        <span className="weather-data__minor-property">
           <WiBarometer className="weather-data__icon weather-data__icon--dark-blue" />
           <p className="weather-data__minor-title">Ciśninie</p>
           <p className="weather-data__minor-value">{ pressure.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") }hPa</p>
-        </span>
-        <span className="weather-data__minor-property">
-          <WiHot className="weather-data__icon weather-data__icon--yellow" />
-          <p className="weather-data__minor-title">Index UV</p>
-          <p className="weather-data__minor-value">{ uvi.toString().replace(/\./g, ",") }</p>
         </span>
         <span className="weather-data__minor-property">
           <WiSmallCraftAdvisory className="weather-data__icon weather-data__icon--orange" />

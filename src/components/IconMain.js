@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import Context from '../Context';
 import { WiDaySunny, WiNightClear, WiDaySunnyOvercast, WiNightPartlyCloudy, WiDayCloudy, WiNightCloudy, WiDayCloudyHigh, WiNightAltCloudyHigh, WiDayRainMix, WiNightAltRainMix, WiDayRain, WiNightRain, WiDayThunderstorm, WiNightSnowThunderstorm, WiDaySnow, WiNightSnow, WiDayFog, WiNightFog } from 'react-icons/wi';
 
-const Icon = () => {
+const IconMain = () => {
   const { weather, city } = useContext(Context);
   const { icon } = weather.current.weather[0];
   const { dt, sunrise, sunset } = weather.current;
@@ -15,7 +15,7 @@ const Icon = () => {
   }, [dt]);
 
   return (
-    <div className={ `icon__main icon__main--${ dayNight }` }>
+    <div className={ `icon-main icon-main--${ dayNight }` }>
       { icon === '01d' ? <WiDaySunny /> :
           icon === '01n' ? <WiNightClear /> :
             icon === '02d' ? <WiDaySunnyOvercast/> :
@@ -38,4 +38,4 @@ const Icon = () => {
   )
 }
 
-export default Icon
+export default IconMain

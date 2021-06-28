@@ -43,22 +43,22 @@ const Alerts = () => {
           const corrDesc = description.replace(regex, "\n");
           let eventPl, eventIcon;
 
-          if(event == 'Red Thunderstorm warning') {
+          if(event === 'Red Thunderstorm warning') {
             eventPl = 'Burze z gradem (III stopnia)';
             alertIcon = <WiThunderstorm />;
-          } else if(event == 'Orange Thunderstorm warning') {
+          } else if(event === 'Orange Thunderstorm warning') {
             eventPl = 'Burze z gradem (II stopnia)';
             alertIcon = <WiThunderstorm />;
-          } else if(event == 'Yellow Thunderstorm warning') {
+          } else if(event === 'Yellow Thunderstorm warning') {
             eventPl = 'Burze z gradem (I stopnia)';
             alertIcon = <WiThunderstorm />;
-          } else if(event == 'Red high-temperature warning') {
+          } else if(event === 'Red high-temperature warning') {
             eventPl = 'Upał (III stopnia)';
             alertIcon = <WiThermometer />;
-          } else if(event == 'Orange high-temperature warning') {
+          } else if(event === 'Orange high-temperature warning') {
             eventPl = 'Upał (II stopnia)';
             alertIcon = <WiThermometer />;
-          } else if(event == 'Yellow High-temperature warning') {
+          } else if(event === 'Yellow High-temperature warning' || event == 'Yellow high-temperature warning') {
             eventPl = 'Upał (I stopnia)';
             alertIcon = <WiThermometer />;
           } else {

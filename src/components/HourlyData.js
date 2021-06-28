@@ -44,7 +44,6 @@ const HourlyData = () => {
       </article>
       {
         hourlyData.map((hourData, key) => {
-          console.log(hourData);
           const { dt, temp, humidity, clouds, wind_speed, pop } = hourData;
           const { icon, description } = hourData.weather[0];
           // Current time

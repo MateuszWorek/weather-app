@@ -4,6 +4,7 @@ import { BiSearchAlt } from "react-icons/bi";
 
 const WeatherSearch = () => {
   const { getApi } = useContext(Context);
+
   return (
     <div className="weather-search">
       <form onSubmit={ getApi } className="weather-search__form">

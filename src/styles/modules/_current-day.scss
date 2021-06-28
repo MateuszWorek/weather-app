@@ -1,0 +1,17 @@
+.current-day {
+  text-transform: capitalize;
+  display: none;
+
+    @media (min-width: $small-devices) {
+    }
+
+    @media (min-width: $medium-devices) {
+    }
+
+    @media (min-width: $large-devices) {
+      display: inline-block;
+    }
+
+    @media (min-width: $extra-large-devices) {
+    }
+}

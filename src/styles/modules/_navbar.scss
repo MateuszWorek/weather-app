@@ -84,8 +84,8 @@
     color: $orange;
     border: 2px solid $orange;
     border-radius: 10px;
-    margin: 0 1rem;
-    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    padding: 1rem 0;
 
     &:hover {
       background-color: $orange;
@@ -106,20 +106,21 @@
     display: inline-block;
     text-align: center;
     font-size: 1rem;
-    width: 20vw;
+    width: 30vw;
 
     @media (min-width: $small-devices) {
     }
 
     @media (min-width: $medium-devices) {
-      width: 15vw;
+      width: 20vw;
     }
 
     @media (min-width: $large-devices) {
-      width: 10vw;
+      width: 15vw;
     }
 
     @media (min-width: $extra-large-devices) {
+      width: 10vw;
     }
   }
 }

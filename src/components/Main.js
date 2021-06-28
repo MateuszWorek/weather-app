@@ -22,6 +22,7 @@ const Main = () => {
 
   const getApi = async (e) => {
     e.preventDefault();
+    console.log(e.target.elements);
     const location = e.target.elements.location.value;
     if(!location) return setError(`Wprowadź poprawną nazwę miejscowości.`), setWeather(null);
     // Geocoding API
