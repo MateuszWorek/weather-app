@@ -12,7 +12,6 @@ legend {
     width: 30vw;
   }
   @media (min-width: $extra-large-devices) {
-    width: 20vw;
   }
 }
 
@@ -45,14 +44,6 @@ legend {
   &__header {
     display: grid;
     grid-template-columns: 1fr;
-
-    // @media (min-width: $small-devices) {
-    //   grid-template-columns: 1fr 1fr;
-    // }
-
-    // @media (min-width: $large-devices) {
-    //   grid-template-columns: 1fr 2fr 1fr;
-    // }
 
     &:nth-child(odd) {
       background-color: $grey-1;
@@ -97,14 +88,6 @@ legend {
     }
   }
 
-  // &__icon {
-  //   svg {
-  //     color: $red;
-  //     width: 75px;
-  //     height: 75px;
-  //   }
-  // }
-
   &__date {
     font-size: 1.25rem;
     font-weight: 600;
@@ -127,21 +110,4 @@ legend {
   &__icon--true {
     display: block;
   }
-
-  // &__date,
-  // &__title {
-  //   display: none;
-  // }
-
-  // @media (min-width: $small-devices) {
-  //   &__title {
-  //     display: block;
-  //   }
-  // }
-
-  // @media (min-width: $large-devices) {
-  //   &__date {
-  //     display: block;
-  //   }
-  // }
 }

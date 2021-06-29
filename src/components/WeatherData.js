@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import Context from '../Context';
 import { BiCurrentLocation } from 'react-icons/bi';
 import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset, WiSmog, WiRaindrops } from 'react-icons/wi';
+import { FaBinoculars } from 'react-icons/fa';
 import IconMain from './IconMain';
 import IconWind from './IconWind';
 import CurrentDate from './CurrentDate';
@@ -213,78 +214,80 @@ const WeatherData = () => {
       {/* Carousel */}
       <div className="weather-data__carousel">
         <div className="weather-data__header">
-          <h2>indeks jakości powietrza</h2>
+          <h2>zanieczyszczenie powietrza</h2>
         </div>
         <Carousel show={ 4 }>
           <span className="weather-data__air-property">
             <WiSmog className={ `weather-data__icon weather-data__icon--${ coIndex }` } />
             <p className="weather-data__air-title">CO</p>
-            <p className="weather-data__air-value">{ coValue && coValue.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ coValue && coValue.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className="weather-data__icon" />
             <p className="weather-data__air-title">NH<sub>3</sub></p>
-            <p className="weather-data__air-value">{ nh3Value && nh3Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ nh3Value && nh3Value.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className="weather-data__icon" />
             <p className="weather-data__air-title">NO</p>
-            <p className="weather-data__air-value">{ noValue && noValue.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ noValue && noValue.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className={ `weather-data__icon weather-data__icon--${ no2Index }` } />
             <p className="weather-data__air-title">NO<sub>2</sub></p>
-            <p className="weather-data__air-value">{ no2Value && no2Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ no2Value && no2Value.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className={ `weather-data__icon weather-data__icon--${ o3Index }` } />
             <p className="weather-data__air-title">O<sub>3</sub></p>
-            <p className="weather-data__air-value">{ o3Value && o3Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ o3Value && o3Value.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className={ `weather-data__icon weather-data__icon--${ pm2_5Index }` } />
             <p className="weather-data__air-title">pm2,5</p>
-            <p className="weather-data__air-value">{ pm2_5Value && pm2_5Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ pm2_5Value && pm2_5Value.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className={ `weather-data__icon weather-data__icon--${ pm10Index }` } />
             <p className="weather-data__air-title">pm10</p>
-            <p className="weather-data__air-value">{ pm10Value && pm10Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ pm10Value && pm10Value.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
           <span className="weather-data__air-property">
             <WiSmog className={ `weather-data__icon weather-data__icon--${ so2Index }` } />
             <p className="weather-data__air-title">SO<sub>2</sub></p>
-            <p className="weather-data__air-value">{ so2Value && so2Value.toString().replace(/\./g, ",") }μg/m<sup>3</sup></p>
+            <p className="weather-data__air-value">{ so2Value && so2Value.toString().replace(/\./g, ",").replace(/\B(?=(\d{3})+(?!\d))/g, " ") }μg/m<sup>3</sup></p>
           </span>
         </Carousel>
-        <div className="weather-data__legend">
-          <span >
-            <WiSmog className="weather-data__icon weather-data__icon--1" />
-            bardzo dobry
-          </span>
-          <span >
-            <WiSmog className="weather-data__icon weather-data__icon--2" />
-            dobry
-          </span>
-          <span >
-            <WiSmog className="weather-data__icon weather-data__icon--3" />
-            umiarkowany
-          </span>
-          <span >
-            <WiSmog className="weather-data__icon weather-data__icon--4" />
-            dostateczny
-          </span>
-          <span >
-            <WiSmog className="weather-data__icon weather-data__icon--5" />
-            zły
-          </span>
-          <span >
-            <WiSmog className="weather-data__icon" />
-            brak danych
-          </span>
-        </div>
+        <fieldset className="weather-data__legend">
+          <legend>Indeks jakości powietrza</legend>
+          <div className="weather-data__legend-box">
+            <span >
+              <WiSmog className="weather-data__icon weather-data__icon--1" />
+              bardzo dobry
+            </span>
+            <span >
+              <WiSmog className="weather-data__icon weather-data__icon--2" />
+              dobry
+            </span>
+            <span >
+              <WiSmog className="weather-data__icon weather-data__icon--3" />
+              umiarkowany
+            </span>
+            <span >
+              <WiSmog className="weather-data__icon weather-data__icon--4" />
+              dostateczny
+            </span>
+            <span >
+              <WiSmog className="weather-data__icon weather-data__icon--5" />
+              zły
+            </span>
+            <span >
+              <WiSmog className="weather-data__icon" />
+              brak danych
+            </span>
+          </div>
+        </fieldset>
       </div>
-
     </div>
   )
 }

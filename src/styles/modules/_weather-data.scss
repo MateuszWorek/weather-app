@@ -278,11 +278,11 @@
   }
 
   &__icon--1 {
-    color: $blue;
+    color: $light-blue;
   }
 
   &__icon--2 {
-    color: $dark-blue;
+    color: $blue;
   }
 
   &__icon--light-blue {
@@ -325,15 +325,27 @@
   }
 
   &__legend {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem 0 1rem;
+    border: 2px solid $grey-6;
+    border-radius: 10px;
+  }
 
-    @media (min-width: $small-devices) {
-      grid-template-columns: repeat(3, 1fr);
+  &__legend-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 0.9rem;
+
+    @media (min-width: $medium-devices) {
+      grid-template-columns: repeat(6, 1fr);
     }
 
     @media (min-width: $large-devices) {
       grid-template-columns: repeat(6, 1fr);
+      font-size: 1rem;
+    }
+
+    @media (min-width: $large-devices) {
+      font-size: 1.25rem;
     }
 
     span {
@@ -341,6 +353,10 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      svg {
+        height: 2rem;
+      }
     }
   }
 }
