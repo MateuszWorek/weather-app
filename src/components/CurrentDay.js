@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CurrentDay = () => {
-  const daysOfWeek = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"];
+  const daysOfWeek = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"];
   const currentDay = new Date().getDay();
 
   return (

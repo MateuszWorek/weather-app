@@ -13,6 +13,10 @@
     &:hover {
       animation: roll 2.5s infinite;
     }
+
+    @media (hover: none) and (pointer: coarse) {
+      animation: roll 2.5s infinite;
+    }
   }
 
   @keyframes roll {
@@ -169,11 +173,11 @@
 
   &__sun {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin: 2rem 0;
 
     @media (min-width: $small-devices) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -207,26 +211,25 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-     @media (min-width: $medium-devices) {
+     @media (min-width: $small-devices) {
         grid-template-columns: repeat(4, 1fr);
-     }
-
-     @media (min-width: $large-devices) {
      }
   }
 
   &__air {
-    margin: 2rem 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: nowrap;
+    // margin: 2rem 0;
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
 
-    @media (min-width: $medium-devices) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    // @media (min-width: $medium-devices) {
+    //   grid-template-columns: repeat(4, 1fr);
+    // }
 
-    @media (min-width: $extra-large-devices) {
-      // grid-template-columns: repeat(8, 1fr);
-    }
+    // @media (min-width: $extra-large-devices) {
+    //   // grid-template-columns: repeat(8, 1fr);
+    // }
   }
 
   &__air-title {
@@ -274,13 +277,19 @@
     color: $grey-6;
   }
 
-  &__icon--light-blue,
   &__icon--1 {
+    color: $blue;
+  }
+
+  &__icon--2 {
+    color: $dark-blue;
+  }
+
+  &__icon--light-blue {
     color: $light-blue;
   }
 
-  &__icon--blue,
-  &__icon--2 {
+  &__icon--blue {
     color: $blue;
   }
 
@@ -301,6 +310,38 @@
   &__icon--red,
   &__icon--5 {
     color: $red;
+  }
+
+  &__carousel {
+    margin: 2rem 0;
+  }
+
+  &__header {
+    color: $grey-9;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  &__legend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: $small-devices) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: $large-devices) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 
