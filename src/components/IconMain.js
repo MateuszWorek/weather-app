@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Context from '../Context';
+import { Context } from '../Context';
 import { WiDaySunny, WiNightClear, WiDaySunnyOvercast, WiNightPartlyCloudy, WiDayCloudy, WiNightCloudy, WiDayCloudyHigh, WiNightAltCloudyHigh, WiDayRainMix, WiNightAltRainMix, WiDayRain, WiNightRain, WiDayThunderstorm, WiNightSnowThunderstorm, WiDaySnow, WiNightSnow, WiDayFog, WiNightFog } from 'react-icons/wi';
 
 const IconMain = () => {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Context from '../Context';
+import { Context } from '../Context';
 import { WiSnowflakeCold } from 'react-icons/wi';
 
 const Snow = () => {

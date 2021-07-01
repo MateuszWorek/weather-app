@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import Context from '../Context';
+import { Context } from '../Context';
 import { WiStormWarning, WiStrongWind, WiThermometer, WiThunderstorm } from 'react-icons/wi';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';

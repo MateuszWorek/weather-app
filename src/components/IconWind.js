@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Context from '../Context';
+import { Context } from '../Context';
 import { WiWindDeg } from 'react-icons/wi';
 
 function IconWind() {

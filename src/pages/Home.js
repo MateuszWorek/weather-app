@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import Content from '../components/Content';
 import WeatherSearch from '../components/WeatherSearch';
 import WeatherData from '../components/WeatherData';
-import Context from '../Context';
+import { Context } from '../Context';
 import Error from '../components/Error';
 import Footer from '../components/Footer';
 import HourlyData from '../components/HourlyData';
 import DailyData from '../components/DailyData';
 import Header from '../components/Header';
 import Alerts from '../components/Alerts';
-import Navbar from '../components/Navbar';
 
 const Home = () => {
   const [city, setCity] = useState();

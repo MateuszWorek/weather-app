@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Context from '../Context';
+import { Context } from '../Context';
 import { BiCurrentLocation } from 'react-icons/bi';
 import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset, WiSmog, WiRaindrops } from 'react-icons/wi';
 import { FaBinoculars } from 'react-icons/fa';

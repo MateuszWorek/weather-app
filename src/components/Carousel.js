@@ -26,7 +26,7 @@ const Carousel = (props) => {
   // Run new card in carousel every interval
   useEffect(() => {
     let slider = setInterval(() => {
-      if (currentIndex < (length - show)) {
+      if (currentIndex < (length - mediaShow)) {
           setCurrentIndex(prevState => prevState + 1);
       } else {
         setCurrentIndex(0);
@@ -37,7 +37,7 @@ const Carousel = (props) => {
 
   // Next button functionality
   const next = () => {
-    if (currentIndex < (length - show)) {
+    if (currentIndex < (length - mediaShow)) {
         setCurrentIndex(prevState => prevState + 1)
     }
   }
@@ -76,16 +76,15 @@ const Carousel = (props) => {
   let mediaShow;
   function showByMedia(x) {
     if (x.matches) {
-      console.log(true);
       mediaShow = 4;
     } else {
-      console.log(false);
       mediaShow = 2;
     }
   }
 
   let x = window.matchMedia("(min-width: 576px)")
   showByMedia(x) // Call listener function at run time
+  console.log(mediaShow);
 
   return (
     <div className="carousel__container">
@@ -93,14 +92,13 @@ const Carousel = (props) => {
         { currentIndex > 0 && <button onClick={ prev } className="carousel__left-arrow"><FaChevronLeft /></button> }
         <div className="carousel__content-wrapper" onTouchStart={ handleTouchStart } onTouchMove={ handleTouchMove }>
           <div
-            className={ `carousel__content carousel__content--show-${ show }`}
+            className={ `carousel__content carousel__content--show-${ mediaShow }`}
             style={{ transform: `translateX(-${currentIndex * (100 / mediaShow )}%)` }}
-            query='(min-width: 768px)'
           >
             { children }
           </div>
         </div>
-        { currentIndex < (length - show) && <button onClick={ next } className="carousel__right-arrow"><FaChevronRight /></button> }
+        { currentIndex < (length - mediaShow) && <button onClick={ next } className="carousel__right-arrow"><FaChevronRight /></button> }
       </div>
     </div>
   )
