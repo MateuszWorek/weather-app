@@ -11,5 +11,14 @@ export default class BlogProvider extends Component {
     loading: true,
     type: 'all',
   };
+
+  getData = async () => {};
+
+  componentDidMount() {
+    this.getData()
+  }
 }
-export { Context };
+
+const BlogConsumer = Context.Consumer;
+
+export { Context, BlogProvider, BlogConsumer };
