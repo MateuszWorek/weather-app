@@ -12,7 +12,15 @@ export default class BlogProvider extends Component {
     type: 'all',
   };
 
-  getData = async () => {};
+  getData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "blogPostExample",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   componentDidMount() {
     this.getData()
