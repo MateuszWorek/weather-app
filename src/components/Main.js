@@ -8,8 +8,6 @@ import Footer from './Footer';
 import HourlyData from './HourlyData';
 import DailyData from './DailyData';
 import Header from './Header';
-import Alerts from './Alerts';
-import Navbar from './Navbar';
 
 const Main = () => {
   const [city, setCity] = useState();

@@ -1,11 +1,49 @@
-.tagline {
-  font-size: 2rem;
-  width: 100%;
-  text-align: center;
-  margin-top: 2rem;
-  letter-spacing: 0.7px;
+// .tagline {
+//   font-size: 2rem;
+//   width: 100%;
+//   text-align: center;
+//   margin-top: 2rem;
+//   letter-spacing: 0.7px;
 
-  @include respond(largePhone) {
-    font-size: 1.5rem;
+//   @include respond(largePhone) {
+//     font-size: 1.5rem;
+//   }
+// }
+.tagline__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.tagline {
+  height: 0.5rem;
+  width: 20rem;
+  z-index: 1;
+  border-radius: 10px;
+
+  &--yellow {
+    background-color: $yellow;
+  }
+
+  &--orange {
+    background-color: $orange;
+  }
+
+  &--light-blue {
+    background-color: $light-blue;
+  }
+
+  &--blue {
+    background-color: $blue;
+  }
+
+  &--dark-blue {
+    background-color: $dark-blue;
+  }
+
+  @media (min-width: $small-devices) {
+    height: 1rem;
+    margin: 1rem 0;
   }
 }

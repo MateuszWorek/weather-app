@@ -1,0 +1,12 @@
+.styled-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $blue;
+  height: 2rem;
+
+  &__add {
+    background-position: center;
+  }
+}

@@ -5,7 +5,7 @@ import { WiWindDeg } from 'react-icons/wi';
 function IconWind() {
   const { weather } = useContext(Context);
   const windDeg = weather.current.wind_deg;
-  console.log(windDeg);
+  // console.log(windDeg);
 
   const windDegDir =
     windDeg > 315 ? "N" :

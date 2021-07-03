@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../components/Header';
+import StyledSection from '../components/StyledSection';
 import Content from '../components/Content';
 import Footer from '../components/Footer';
 
 const AlertsPage = () => {
   return (
     <div className="main">
-      <Header />
+      <StyledSection />
       <Content>alerty</Content>
       <Footer />
     </div>

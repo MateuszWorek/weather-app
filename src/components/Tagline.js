@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Tagline = () => {
+const Tagline = ({ color }) => {
   return (
-    <div className="tagline">
-      <p>Wpropwadź nazwę miejscowości aby sprawdzić prognozę pogody.</p>
+    <div className="tagline__wrapper">
+      <div className={`tagline tagline--${ color }`}></div>
     </div>
   )
 }

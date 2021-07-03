@@ -1,0 +1,7 @@
+.blog-posts {
+  padding: 1rem 0.5rem;
+
+  @media (min-width: $extra-large-devices) {
+    padding: 1rem 1rem;
+  }
+}

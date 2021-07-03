@@ -1,0 +1,44 @@
+.banner {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  &__title {
+    color: $white;
+    font-size: 3rem;
+    text-transform: uppercase;
+
+    @media (min-width: $small-devices) {
+      font-size: 4rem;
+    }
+
+    @media (min-width: $large-devices) {
+      font-size: 5rem;
+    }
+  }
+
+  &__subtitle {
+    color: $white;
+  }
+
+  &__spacing {
+    height: 0.5rem;
+    width: 10rem;
+    background-color: $orange;
+    z-index: 1;
+    align-self: center;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+
+    @media (min-width: $small-devices) {
+      height: 1rem;
+      margin: 1rem 0;
+    }
+  }
+  &__subtitle {}
+}

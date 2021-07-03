@@ -4,9 +4,11 @@
 // Mixins
 @import "./misc/mixins";
 // Modules/ Components
+@import "./modules/blog-posts";
+@import "./modules/loading";
 @import "./modules/wrapper";
 @import "./modules/main";
-@import "./modules/header";
+@import "./modules/styled-section";
 @import "./modules/content";
 @import "./modules/current-date";
 @import "./modules/current-day";
@@ -24,5 +26,11 @@
 @import './modules/alerts';
 @import './modules/navbar';
 @import './modules/carousel';
+@import './modules/posts-filter';
+@import './modules/header';
+@import './modules/banner';
+@import './modules/posts-list';
+@import './modules/post';
+@import './modules/post-page';
 // Pages
 @import './pages/error-page';

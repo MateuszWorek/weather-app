@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BlogProvider } from './Context';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
@@ -9,9 +10,11 @@ import "./styles/styles.scss"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <BlogProvider>
+      <Router>
+        <App />
+      </Router>
+    </BlogProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

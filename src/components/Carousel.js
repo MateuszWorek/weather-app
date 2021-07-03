@@ -84,7 +84,6 @@ const Carousel = (props) => {
 
   let x = window.matchMedia("(min-width: 576px)")
   showByMedia(x) // Call listener function at run time
-  console.log(mediaShow);
 
   return (
     <div className="carousel__container">

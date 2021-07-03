@@ -7,7 +7,7 @@ import Error from '../components/Error';
 import Footer from '../components/Footer';
 import HourlyData from '../components/HourlyData';
 import DailyData from '../components/DailyData';
-import Header from '../components/Header';
+import StyledSection from '../components/StyledSection';
 import Alerts from '../components/Alerts';
 
 const Home = () => {
@@ -69,7 +69,7 @@ const Home = () => {
 
   return (
     <div className="main">
-      <Header />
+      <StyledSection />
       <Content>
         <Context.Provider value={{ getApi, weather, city, airPolution }}>
           <WeatherSearch />

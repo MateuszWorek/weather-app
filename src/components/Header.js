@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ children, hero="hero", img }) => {
   return (
-    <div className="header">
-      <p></p>
-    </div>
+    <header className={ hero } style={{ background: `url(${ img }) center/cover no-repeat`}}>
+      { children }
+    </header>
   )
 }
 
