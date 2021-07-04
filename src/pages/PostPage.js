@@ -35,7 +35,7 @@ export default class PostPage extends Component {
           <StyledSection />
             <Content>
               <Header img={ this.state.defaultPostImg }>
-                <Banner title="nie znaleziono szukanego atykułu">
+                <Banner title="404" subtitle="Nie znaleziono szukanego atykułu.">
                   <Link to="/blog/" className="btn--primary">powrót do bloga</Link>
                 </Banner>
               </Header>
