@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import StyledSection from '../components/StyledSection';
 import Content from '../components/Content';
 import Header from '../components/Header';
@@ -9,6 +9,10 @@ import Footer from '../components/Footer';
 import BlogPosts from '../components/BlogPosts';
 
 const BlogPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="main">
       <StyledSection />

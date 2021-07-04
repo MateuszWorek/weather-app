@@ -21,6 +21,10 @@ export default class PostPage extends Component {
 
   static contextType = Context;
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     const { getPost } = this.context;
     const post = getPost(this.state.slug);

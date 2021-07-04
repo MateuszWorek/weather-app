@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Content from '../components/Content';
 import WeatherSearch from '../components/WeatherSearch';
 import WeatherData from '../components/WeatherData';
@@ -19,6 +19,9 @@ const Home = () => {
   const [alerts, setAlerts] = useState(false);
   const API_KEY = "fae55a9eb9b61fa12c46478c7e44305b";
   let alertsTabLength, alertEvent;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const getApi = async (e) => {
     e.preventDefault();
