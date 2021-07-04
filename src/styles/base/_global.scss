@@ -83,6 +83,14 @@ button {
       transition: all 0.25s;
     }
 
+    @media (hover: none) and (pointer: coarse) {
+      color: $yellow;
+
+      svg {
+        animation: moveRight 2s infinite;
+      }
+    }
+
     &:hover,
     &:active {
       color: $yellow;
@@ -91,6 +99,21 @@ button {
         color: $yellow;
         transform: translateX(0);
       }
+    }
+  }
+
+  @keyframes moveRight {
+    0% {
+      color: transparent;
+      transform: translateX(-1rem);
+    }
+    50% {
+      color: $yellow;
+      transform: translateX(0);
+    }
+    100% {
+      color: transparent;
+      transform: translateX(1rem);
     }
   }
 }
