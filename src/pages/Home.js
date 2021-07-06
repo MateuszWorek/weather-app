@@ -41,6 +41,7 @@ const Home = () => {
       console.log(error);
       setError(`Wprowadź poprawną nazwę miejscowości.`);
       setWeather(null);
+      setAlerts(null);
     }
 
     // One Call API
@@ -56,6 +57,7 @@ const Home = () => {
       console.log(error);
       setError(`Wprowadź poprawną nazwę miejscowości.`);
       setWeather(null);
+      setAlerts(null);
     }
 
     // Air Polution API
