@@ -10,20 +10,29 @@
 
   &__title {
     color: $white;
-    font-size: 3rem;
     text-transform: uppercase;
+    font-size: 1.5rem;
 
     @media (min-width: $small-devices) {
-      font-size: 4rem;
+      font-size: 2rem;
     }
 
     @media (min-width: $large-devices) {
-      font-size: 5rem;
+      font-size: 3rem;
     }
   }
 
   &__subtitle {
     color: $white;
+    font-size: 1rem;
+
+    @media (min-width: $small-devices) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: $large-devices) {
+      font-size: 2rem;
+    }
   }
 
   &__spacing {
@@ -40,5 +49,4 @@
       margin: 1rem 0;
     }
   }
-  &__subtitle {}
 }

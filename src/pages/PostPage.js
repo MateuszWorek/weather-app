@@ -45,21 +45,21 @@ export default class PostPage extends Component {
       );
     }
 
-    const { title, tags, heroImage, description, body } = post;
+    const { title, subtitle, heroImage, description, body } = post;
 
     return (
       <div className="main">
         <StyledSection />
           <Content>
             <Header img={ heroImage || this.state.defaultPostImg }>
-              <Banner title={ title }>
+              <Banner title={ title } subtitle={ subtitle } >
                 <Link to="/blog/" className="btn--primary">powrót do bloga</Link>
               </Banner>
             </Header>
             <section className="post-page">
               <article className="post-page__desc">
                 <h3 className="post-page__heading">{ description }</h3>
-                <p>{ body }</p>
+                <p className="post-page__paragraph">{ body }</p>
               </article>
             </section>
           </Content>
