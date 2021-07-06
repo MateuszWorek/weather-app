@@ -5,13 +5,13 @@ legend {
   @media (min-width: $small-devices) {
     width: 50vw;
   }
+
   @media (min-width: $medium-devices) {
      width: 40vw;
   }
+
   @media (min-width: $large-devices) {
     width: 30vw;
-  }
-  @media (min-width: $extra-large-devices) {
   }
 }
 
@@ -88,11 +88,20 @@ legend {
     }
   }
 
+  &__title--orange {
+    color: $orange;
+  }
+
+  &__title--yellow {
+    color: $yellow;
+  }
+
   &__date {
     font-size: 1.25rem;
     font-weight: 600;
     padding-top: 0.5rem;
   }
+
   &__desc {
     line-height: 1.75rem;
     padding: 0 2.5rem 0;

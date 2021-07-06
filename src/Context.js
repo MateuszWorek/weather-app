@@ -23,10 +23,6 @@ export default class BlogProvider extends Component {
         loading: false,
         posts,
         sortedPosts: posts,
-        // tags: posts.map(post => {
-        //   return post.tags;
-        // }),
-
       });
     } catch (error) {
       console.log(error);

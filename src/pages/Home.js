@@ -18,7 +18,7 @@ const Home = () => {
   const [buttonIndex, setButtonIndex] = useState(0);
   const [alerts, setAlerts] = useState(false);
   const API_KEY = "fae55a9eb9b61fa12c46478c7e44305b";
-  let alertsTabLength, alertEvent;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,7 +42,6 @@ const Home = () => {
       setError(`Wprowadź poprawną nazwę miejscowości.`);
       setWeather(null);
     }
-
 
     // One Call API
     try {
@@ -83,9 +82,9 @@ const Home = () => {
           </div>
           { error && <Error error={ error } /> }
           { alerts && <Alerts />}
-          <span className={ 'weather' + buttonIndex }>{ weather && <WeatherData /> }</span>
-          <span className={ 'hourly' + buttonIndex }>{ weather && <HourlyData /> }</span>
-          <span className={ 'daily' + buttonIndex}>{ weather && <DailyData /> }</span>
+          <span className={ 'main__weather--' + buttonIndex }>{ weather && <WeatherData /> }</span>
+          <span className={ 'main__hourly--' + buttonIndex }>{ weather && <HourlyData /> }</span>
+          <span className={ 'main__daily--' + buttonIndex}>{ weather && <DailyData /> }</span>
         </Context.Provider>
       </Content>
       <Footer />

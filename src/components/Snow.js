@@ -3,13 +3,11 @@ import { Context } from '../Context';
 import { WiSnowflakeCold } from 'react-icons/wi';
 
 const Snow = () => {
-  const { weather, city } = useContext(Context);
+  const { weather } = useContext(Context);
   let snow;
   try {
     snow = weather.current.snow["1h"];
-    // console.log(snow);
   } catch (error) {
-    // console.log(snow);
     console.log(error);
   }
 

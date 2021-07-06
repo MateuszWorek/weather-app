@@ -7,14 +7,8 @@
     justify-content: center;
     align-items: center;
 
-    @media (min-width: $small-devices) {
-    }
-
     @media (min-width: $medium-devices) {
       margin: 2rem 0;
-    }
-
-    @media (min-width: $large-devices) {
     }
 
     @media (min-width: $extra-large-devices) {
@@ -50,9 +44,6 @@
       width: 40%;
     }
 
-    @media (min-width: $large-devices) {
-    }
-
     @media (min-width: $extra-large-devices) {
       width: 35%;
     }
@@ -78,9 +69,6 @@
       width: 40%;
     }
 
-    @media (min-width: $large-devices) {
-    }
-
     @media (min-width: $extra-large-devices) {
       width: 35%;
     }
@@ -89,7 +77,6 @@
   &__button {
     width: 100%;
     height: 100%;
-    // padding: 0.5rem;
     margin-right: 3rem;
     display: flex;
     justify-content: center;
@@ -108,14 +95,9 @@
     height: 1.5rem;
     width: 1.5rem;
     margin-right: 0.5rem;
-
-    @media (min-width: $small-devices) {
-
-    }
   }
 
   &__btn-text {
-    display: block;
     padding-left: 0.5rem;
     display: none;
 

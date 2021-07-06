@@ -1,20 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../Context';
-import { WiStormWarning, WiStrongWind, WiThermometer, WiThunderstorm } from 'react-icons/wi';
+import { WiThermometer, WiThunderstorm, WiHail } from 'react-icons/wi';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const Alerts = () => {
-  const { weather, city } = useContext(Context);
+  const { weather } = useContext(Context);
   let alerts, alertIcon;
   try {
     alerts = weather.alerts;
-    // console.log(alerts);
   } catch (error) {
     console.log(error);
   }
   const [alertDesc, setAlertDesc] = useState(false);
-  // console.log(alertDesc);
 
   return (
       <fieldset className="alerts">
@@ -25,13 +22,10 @@ const Alerts = () => {
           { alertDesc ? <FaChevronUp /> : <FaChevronDown /> }
         </button>
         <div className="alerts__header">
-          {/* <span className="alerts__title">Alert</span> */}
-          {/* <span className="alerts__desc">Opis</span>
-          <span className="alerts__starts">Początek/ Koniec</span> */}
         </div>
 
         { alerts && alerts.map((alert, key) => {
-          const { event, description, start, end } = alert;
+          const { event, start, end } = alert;
 
           const startMs = start * 1000;
           const startTime = new Date(startMs);
@@ -39,38 +33,64 @@ const Alerts = () => {
           const endMs = end * 1000;
           const endTime = new Date(endMs);
           const endDate = endTime.toLocaleDateString();
-          const regex = /(%lf)/g;
-          const corrDesc = description.replace(regex, "\n");
-          let eventPl, eventIcon;
+          {/* const regex = /(%lf)/g; */}
+          {/* const corrDesc = description.replace(regex, "\n"); */}
+          let eventPl, descPl, warningDegree;
 
-          if(event === 'Red Thunderstorm warning') {
+          if(event === 'Red Thunderstorm warning' || event === 'Red thunderstorm warning') {
             eventPl = 'Burze z gradem (III stopnia)';
-            alertIcon = <WiThunderstorm />;
-          } else if(event === 'Orange Thunderstorm warning') {
+            warningDegree = 'red';
+            alertIcon = <WiHail />;
+            descPl = 'Burze z opadami deszczu powyżej 50mm lub porywami wiatru o prędnkości powyżej 115km/h. Lokalnie opady gradu.';
+          } else if(event === 'Orange Thunderstorm warning' || event === 'Orange thunderstorm warning') {
             eventPl = 'Burze z gradem (II stopnia)';
-            alertIcon = <WiThunderstorm />;
-          } else if(event === 'Yellow Thunderstorm warning') {
+            warningDegree = 'orange';
+            alertIcon = <WiHail />;
+            descPl = 'Burze z opadami deszczu 30-50mm, lokalnie do 60mm lub porywami wiatru o prędnkości 90-115km/h. Lokalnie opady gradu.';
+          } else if(event === 'Yellow Thunderstorm warning' || event === 'Yellow thunderstorm warning') {
             eventPl = 'Burze z gradem (I stopnia)';
-            alertIcon = <WiThunderstorm />;
-          } else if(event === 'Red high-temperature warning') {
+            warningDegree = 'yellow';
+            alertIcon = <WiHail />;
+            descPl = 'Burze z opadami deszczu 20-30mm, lokalnie do 40mm lub porywami wiatru o prędnkości 70-90km/h. Lokalnie opady gradu.';
+          } else if(event === 'Red High-temperature warning' || event === 'Red high-temperature warning') {
             eventPl = 'Upał (III stopnia)';
+            warningDegree = 'red';
             alertIcon = <WiThermometer />;
-          } else if(event === 'Orange high-temperature warning') {
+            descPl = 'Temperatura maksymalna przez przynajmniej dwa kolejne dni powyżej 34°C, temperatura minimalna w nocy powyżej 18°C.';
+          } else if(event === 'Orange High-temperature warning' || event === 'Orange high-temperature warning') {
             eventPl = 'Upał (II stopnia)';
+            warningDegree = 'orange';
             alertIcon = <WiThermometer />;
+            descPl = 'Temperatura maksymalna przez przynajmniej dwa kolejne dni 30-34°C, temperatura minimalna w nocy powyżej 18°C.';
           } else if(event === 'Yellow High-temperature warning' || event == 'Yellow high-temperature warning') {
             eventPl = 'Upał (I stopnia)';
+            warningDegree = 'yellow';
             alertIcon = <WiThermometer />;
+            descPl = 'Temperatura maksymalna przez przynajmniej dwa kolejne dni 30-34°C, temperatura minimalna w nocy poniżej 18°C lub temperatura maksymalna powyżej 34°C przez jeden dzień.';
+          } else if(event === 'Red Rain warning' || event === 'Red rain warning') {
+            eventPl = 'Intensywne opady deszczu z burzami (III stopnia)';
+            warningDegree = 'red';
+            alertIcon = <WiThunderstorm />;
+            descPl = 'Burze z opadami deszczu powyżej 50mm lub porywami wiatru o prędkości powyżej 115km/h.';
+          } else if(event === 'Orange Rain warning' || event === 'Orange rain warning') {
+            eventPl = 'Intensywne opady deszczu z burzami (II stopnia)';
+            warningDegree = 'orange';
+            alertIcon = <WiThunderstorm />;
+            descPl = 'Burze z opadami deszczu 30-50mm lub porywami wiatru o prędkości 90-115km/h.';
+          } else if(event === 'Yellow Rain warning' || event === 'Yellow rain warning') {
+            eventPl = 'Intensywne opady deszczu z burzami (I stopnia)';
+            warningDegree = 'yellow';
+            alertIcon = <WiThunderstorm />;
+            descPl = `Burze z opadami deszczu 20-30mm lub porywami wiatru o prędkości 70-90km/h.`;
           } else {
             eventPl = event;
           }
 
           return (
             <div className="alerts__body" id={ key }>
-              <span className={ `alerts__title` }>{ alertIcon }{ eventPl }</span>
-              {/* <span className={ `alerts__icon alerts__icon--${ alertDesc }` }>{ alertIcon }</span> */}
+              <span className={ `alerts__title alerts__title--${ warningDegree }` }>{ alertIcon }{ eventPl }</span>
               <span className={ `alerts__date alerts__date--${ alertDesc }` }>{ startDate }/ { endDate }</span>
-              <span className={ `alerts__desc alerts__desc--${ alertDesc }` }>{ corrDesc }</span>
+              <span className={ `alerts__desc alerts__desc--${ alertDesc }` }>{ descPl }</span>
             </div>
           )
         })}
@@ -79,12 +99,3 @@ const Alerts = () => {
 }
 
 export default Alerts
-
-
-
-// 0: {sender_name: "", event: "Wind", start: 1623250800, end: 1623405600, description: "", …}
-// 1: {sender_name: "", event: "Ветер", start: 1623250800, end: 1623405600, description: "Ветер до 15-17 м/с", …}
-// 2: {sender_name: "", event: "Thunderstorms", start: 1623250800, end: 1623405600, description: "", …}
-// 3: {sender_name: "", event: "Гроза", start: 1623250800, end: 1623405600, description: "Гроза", …}
-// length: 4
-// __proto__: Array(0)

@@ -1,15 +1,15 @@
-.hourly-data {
+.data {
   text-align: center;
+
+  &__location {
+    margin-right: 0.5rem;
+  }
 
   &__tagline {
     color: $red;
     font-size: 2rem;
     line-height: 2.5rem;
     font-weight: 600;
-  }
-
-  &__location {
-    margin-right: 0.5rem;
   }
 
   &__city {
@@ -30,10 +30,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     h2 {
       font-weight: 600;
     }
   }
+
   &__row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -62,14 +64,12 @@
       align-self: center;
       justify-self: center;
 
-      img {
-
-      }
+      img {}
     }
   }
 
-  &__row.hourly-data__row--header {
-    height: 4rem;
+  &__row.data__row--header {
+    height: 64px;
     border-radius: 10px;
   }
 
@@ -114,15 +114,8 @@
       display: block;
     }
   }
+
+  &__temp span {
+    font-weight: 900;
+  }
 }
-
-
-
-// @media (min-width: $small-devices) {}
-
-@media (min-width: $medium-devices) {
-}
-
-@media (min-width: $large-devices) {}
-
-@media (min-width: $extra-large-devices) {}

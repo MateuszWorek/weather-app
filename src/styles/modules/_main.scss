@@ -31,21 +31,16 @@
     margin: 1rem 0;
     width: 100%;
 
-    @media (min-width: $small-devices) {
-    }
-
     @media (min-width: $medium-devices) {
       flex-direction: row;
       margin: 1.5rem 0;
-    }
-
-    @media (min-width: $large-devices) {
     }
 
     @media (min-width: $extra-large-devices) {
       margin: 2rem 0;
     }
   }
+
   &__button {
     border: 2px solid $orange;
     border-radius: 10px;
@@ -84,17 +79,17 @@
   color: $grey-1;
 }
 
-.weather0,
-.hourly1,
-.daily2 {
+.main__weather--0,
+.main__hourly--1,
+.main__daily--2 {
   display: block;
 }
 
-.hourly0,
-.daily0,
-.weather1,
-.daily1,
-.weather2,
-.hourly2 {
+.main__hourly--0,
+.main__daily--0,
+.main__weather--1,
+.main__daily--1,
+.main__weather--2,
+.main__hourly--2 {
   display: none;
 }

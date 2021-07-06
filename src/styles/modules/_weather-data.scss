@@ -1,10 +1,33 @@
 .weather-data {
   text-align: center;
 
-  &__form {}
+  &__location {}
+
+  &__tagline {
+    color: $red;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+  }
+
+  &__city {
+    margin-left: 0.5rem;
+  }
+
+  &__time {
+
+    svg {
+      color: $orange;
+      width: 3rem;
+      height: 3rem;
+      margin-top: -0.3rem;
+    }
+  }
+
   &__input {
     display: none;
   }
+
   &__button {
     border: none;
     padding: 0;
@@ -28,52 +51,15 @@
     }
   }
 
-  &__tagline {
-    color: $red;
-    font-size: 2rem;
-    line-height: 2.5rem;
-    font-weight: 600;
-  }
-  &__location {
-    // margin-right: 0.5rem;
-  }
-  &__city {
-    margin-left: 0.5rem;
-  }
-
-  &__time {
-
-    svg {
-      color: $orange;
-      width: 3rem;
-      height: 3rem;
-      margin-top: -0.3rem;
-    }
-
-  }
-
   &__box {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // flex-wrap: nowrap;
-    // align-content: stretch;
-    // align-items: center;
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
     padding-bottom: 2.5rem;
 
-    @media (min-width: $small-devices) {
-    }
-
     @media (min-width: $medium-devices) {
       grid-template-columns: repeat(3, 1fr);
     }
-
-    @media (min-width: $large-devices) {}
-
-    @media (min-width: $extra-large-devices) {}
   }
 
   &__property {
@@ -125,6 +111,7 @@
     @media (min-width: $large-devices) {
       font-size: 3.5rem;
     }
+
     @media (min-width: $extra-large-devices) {
       font-size: 4rem;
     }
@@ -132,7 +119,6 @@
 
   &__value.weather-data__value--main {
     font-size: 5rem;
-    line-height: 0.8;
     color: $red;
 
     @media (min-width: $large-devices) {
@@ -145,39 +131,6 @@
 
     @media (min-width: $large-devices) {
       font-size: 6.5rem;
-    }
-  }
-
-  &__minor-title {
-    font-size: 1rem;
-    text-transform: lowercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    @media (min-width: $large-devices) {
-      font-size: 1.25rem;
-    }
-  }
-
-  &__minor-value {
-    font-size: 1.25rem;
-    font-weight: 600;
-
-    @media (min-width: $large-devices) {
-      font-size: 1.5rem;
-    }
-    @media (min-width: $extra-large-devices) {
-      font-size: 1.75rem;
-    }
-  }
-
-  &__sun {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 2rem 0;
-
-    @media (min-width: $small-devices) {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -206,6 +159,39 @@
     }
   }
 
+  &__sun {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 2rem 0;
+
+    @media (min-width: $small-devices) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__minor-title {
+    font-size: 1rem;
+    text-transform: lowercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__minor-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: $extra-large-devices) {
+      font-size: 1.75rem;
+    }
+  }
+
   &__details {
     margin: 2rem 0;
     display: grid;
@@ -216,58 +202,19 @@
      }
   }
 
-  &__air {
-    display: flex;
-    flex-wrap: nowrap;
-    // margin: 2rem 0;
-    // display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-
-    // @media (min-width: $medium-devices) {
-    //   grid-template-columns: repeat(4, 1fr);
-    // }
-
-    // @media (min-width: $extra-large-devices) {
-    //   // grid-template-columns: repeat(8, 1fr);
-    // }
+  &__carousel {
+    margin: 2rem 0;
   }
 
-  &__air-title {
-    font-size: 1rem;
-    text-transform: uppercase;
+  &__header {
+    color: $grey-9;
+    font-size: 2rem;
+    line-height: 2.5rem;
     font-weight: 600;
-    letter-spacing: 1px;
-
-    @media (min-width: $large-devices) {
-      font-size: 1.25rem;
-    }
-  }
-
-  &__air-value {
-    font-size: 1.25rem;
-    font-weight: 600;
-
-    @media (min-width: $large-devices) {
-      font-size: 1.5rem;
-    }
+    text-transform: capitalize;
 
     @media (min-width: $extra-large-devices) {
-      font-size: 1.75rem;
-    }
-  }
-
-  &__title svg {
-    margin-top: -0.2rem;
-    width: 2rem;
-    height: 2rem;
-    color: $orange;
-
-    @media (min-width: $medium-devices) {
-    }
-
-    @media (min-width: $extra-large-devices) {
-      width: 2.5rem;
-      height: 2.5rem;
+      font-size: 2.5rem;
     }
   }
 
@@ -312,16 +259,28 @@
     color: $red;
   }
 
-  &__carousel {
-    margin: 2rem 0;
+  &__air-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.25rem;
+    }
   }
 
-  &__header {
-    color: $grey-9;
-    font-size: 2rem;
-    line-height: 2.5rem;
+  &__air-value {
+    font-size: 1.25rem;
     font-weight: 600;
-    text-transform: capitalize;
+
+    @media (min-width: $large-devices) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: $extra-large-devices) {
+      font-size: 1.75rem;
+    }
   }
 
   &__legend {
@@ -344,7 +303,7 @@
       font-size: 1rem;
     }
 
-    @media (min-width: $large-devices) {
+    @media (min-width: $extra-large-devices) {
       font-size: 1.25rem;
     }
 

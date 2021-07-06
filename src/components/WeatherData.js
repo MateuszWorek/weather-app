@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Context } from '../Context';
 import { BiCurrentLocation } from 'react-icons/bi';
-import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset, WiSmog, WiRaindrops } from 'react-icons/wi';
+import { WiStrongWind, WiHumidity, WiBarometer, WiHot, WiSmallCraftAdvisory, WiCloudy, WiSunrise, WiSunset, WiSmog, WiRaindrops, WiRefresh } from 'react-icons/wi';
 import IconMain from './IconMain';
 import IconWind from './IconWind';
 import CurrentDate from './CurrentDate';
@@ -10,16 +10,12 @@ import CurrentTime  from './CurrentTime';
 import Carousel from './Carousel';
 import Rain from './Rain';
 import Snow from './Snow';
-import Alert from './Alerts';
-import { WiRefresh } from 'react-icons/wi';
 
 const WeatherData = () => {
-  const { weather, city, airPolution, getApi, resp } = useContext(Context);
+  const { weather, city, airPolution, getApi } = useContext(Context);
   let coValue, nh3Value, noValue, no2Value, o3Value, pm2_5Value, pm10Value, so2Value;
-  let coIndex, nh3Index, noIndex, no2Index, o3Index, pm2_5Index, pm10Index, so2Index;
+  let coIndex, no2Index, o3Index, pm2_5Index, pm10Index, so2Index;
   let airIndex, airIndexDesc;
-  console.log(useContext(Context));;
-  console.log(resp);
 
   if(airPolution) {
     try {
@@ -56,15 +52,14 @@ const WeatherData = () => {
         so2 <= 100 ? 2 :
           so2 <= 200 ? 3 :
             so2 <= 350 ? 4 : 5;
-      // console.log(co, nh3, no, no2, o3, pm2_5, pm10, so2);
       [coValue, nh3Value, noValue, no2Value, o3Value, pm2_5Value, pm10Value, so2Value] = [co, nh3, no, no2, o3, pm2_5, pm10, so2];
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   }
 
-  const { main, description, icon, id } = weather.current.weather[0];
-  const { dew_point, temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, dt, sunrise, sunset, wind_deg } = weather.current;
+  const { description } = weather.current.weather[0];
+  const { dew_point, temp, feels_like, humidity, pressure, wind_speed, uvi, visibility, clouds, sunrise, sunset, wind_deg } = weather.current;
   const floorTemp = Math.floor(temp);
   const floorFeelsTemp = Math.floor(feels_like);
   // Sunrise
@@ -82,20 +77,19 @@ const WeatherData = () => {
   try {
     rain = weather.current.rain["1h"];
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
   // Snow
   let snow;
   try {
     snow = weather.current.snow["1h"];
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
 
   // Wind description
   const [currWindDesc, setCurrWindDesc] = useState("");
   let windDesc;
-
   useEffect(() => {
     windDesc =
       wind_deg > 315 ? "północny" :
@@ -115,13 +109,13 @@ const WeatherData = () => {
         <BiCurrentLocation className="weather-data__location" />
         <span className="weather-data__city">{ city }<CurrentDay /><CurrentDate />
         </span>
-        <p className="weather-data__time">
+        <div className="weather-data__time">
           <form className="weather-data__form" onSubmit={ getApi }>
             <input className="weather-data__input" type="text" name="location" value={ city } />
             <CurrentTime />
             <button className="weather-data__button"><WiRefresh /></button>
           </form>
-        </p>
+        </div>
       </h1>
     </article>
 
